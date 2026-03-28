@@ -16,7 +16,11 @@ namespace oopfinalproject
 
         public void SetCapacity(double capacity)
         {
-            this.maxCapacity = capacity;
+            if (capacity <= 0)
+            {
+                throw new Exception("Capacity must be greater than zero.");
+            }
+            maxCapacity = capacity;
         }
 
         public double GetRemainingCapacity()
@@ -26,7 +30,23 @@ namespace oopfinalproject
 
         public virtual double CalculateFuelEfficiency()
         {
-            return 0; // Placeholder for fuel efficiency calculation
+            if (speed <= 0)
+            {
+                throw new Exception("Speed must be greater than zero.");
+            }
+            if (currentLoad < 0 || currentLoad > maxCapacity)
+            {
+                throw new Exception("Current load must be between 0 and max capacity.");
+            }
+
+            double fuelEfficiency = ((currentLoad / maxCapacity) / speed)*7;
+
+            if (fuelEfficiency < 0.1)
+            {
+                throw new Exception("Fuel efficiency is too low.");
+            }
+
+            return fuelEfficiency;
         }
 
         public abstract void Deliver(List<Package> packages); //List of <Pakage> to be done still
