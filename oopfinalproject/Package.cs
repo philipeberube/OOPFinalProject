@@ -13,7 +13,16 @@ namespace oopfinalproject
         private int priorityLevel; // 1 to 5, 1 being the highest priority
         private string destination;
         private string status; // "Pending", "Assigned", "Delivered"
-                               
+        
+        public Package(int id, double weight, int priorityLevel, string destination)
+        {
+            this.id = id;
+            this.weight = weight;
+            this.priorityLevel = priorityLevel;
+            this.destination = destination;
+            this.status = "Pending"; // Default status
+        }
+
         public double CalculatePriorityScore()
         {
             if (priorityLevel < 1 || priorityLevel > 5)
