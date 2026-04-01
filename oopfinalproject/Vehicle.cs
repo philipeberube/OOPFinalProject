@@ -28,6 +28,16 @@ namespace oopfinalproject
             return maxCapacity - currentLoad;
         }
 
+        public bool GetIsAvailable()
+        {
+            return isAvailable;
+        }
+
+        public void SetIsAvailable(bool isAvailable)
+        {
+            this.isAvailable = isAvailable;
+        }
+
         public virtual double CalculateFuelEfficiency()
         {
             if (speed <= 0)

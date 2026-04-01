@@ -16,7 +16,7 @@ namespace oopfinalproject
         }
         public double GetMaxDistance()
         {
-            return this.maxDistance;
+            return maxDistance;
         }
 
         public override void Deliver(List<Package> packages)

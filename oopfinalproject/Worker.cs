@@ -24,7 +24,7 @@ namespace oopfinalproject
         }
         public bool GetIsAvailable()
         {
-            return this.isAvailable;
+            return isAvailable;
         }
         public void SetTasksCompleted(int tasksCompleted)
         {
@@ -40,11 +40,11 @@ namespace oopfinalproject
         }
         public int GetExperienceYears()
         {
-            return this.experienceYears;
+            return experienceYears;
         }
         public void AddTask(int tc)
         {
-            tc = this.tasksCompleted;
+            tasksCompleted = tc;
         }
         public virtual double CalculatePerformace(int ey, int tc)
         {

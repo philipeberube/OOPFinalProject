@@ -15,6 +15,16 @@ namespace oopfinalproject
             this.teamSize = teamSize;
         }
 
+        public int GetTeamSize()
+        {
+            return teamSize;
+        }
+
+        public void SetTeamSize(int teamSize)
+        {
+            this.teamSize = teamSize;
+        }
+
         public override void Display()
         {
             throw new NotImplementedException();

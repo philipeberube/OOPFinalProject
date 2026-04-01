@@ -16,7 +16,7 @@ namespace oopfinalproject
         }
         public string GetLicenceType()
         {
-            return this.licenceType;
+            return licenceType;
         }
         public override void Deliver(List<Package> packages)
         {
