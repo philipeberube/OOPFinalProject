@@ -3,16 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace oopfinalproject
 {
-    public abstract class Worker(int id, int experienceYears, int tasksCompleted, bool isAvailable) : Entity(id, "Worker", DateTime.Now)
+    public abstract class Worker : Entity
     {
-        private int experienceYears = experienceYears;
-        private int tasksCompleted = tasksCompleted;
-        private bool isAvailable = isAvailable;
+        private int experienceYears;
+        private int tasksCompleted;
+        private bool isAvailable;
 
-        protected Worker(int experienceYears, int tasksCompleted, bool isAvailable)
+        public Worker(int id, int experienceYears, int tasksCompleted, bool isAvailable) : base(id, "Worker", DateTime.Now)
         {
             this.experienceYears = experienceYears;
             this.tasksCompleted = tasksCompleted;
