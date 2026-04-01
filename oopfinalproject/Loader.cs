@@ -10,8 +10,9 @@ namespace oopfinalproject
     {
         private double maxLiftWeight;
 
-        public Loader(int experienceYears, int tasksCompleted, bool isAvailable) : base(experienceYears, tasksCompleted, isAvailable)
+        public Loader(int experienceYears, int tasksCompleted, bool isAvailable, double maxLiftWeight) : base(experienceYears, tasksCompleted, isAvailable)
         {
+            this.maxLiftWeight = maxLiftWeight;
         }
 
         public double GetMaxLiftWeight()

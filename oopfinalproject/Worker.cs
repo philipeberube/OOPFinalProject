@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace oopfinalproject
 {
-    public abstract class Worker : Entity
+    public abstract class Worker(int id, int experienceYears, int tasksCompleted, bool isAvailable) : Entity(id, "Worker", DateTime.Now)
     {
-        private int experienceYears;
-        private int tasksCompleted;
-        private bool isAvailable;
+        private int experienceYears = experienceYears;
+        private int tasksCompleted = tasksCompleted;
+        private bool isAvailable = isAvailable;
 
         protected Worker(int experienceYears, int tasksCompleted, bool isAvailable)
         {
@@ -18,6 +18,7 @@ namespace oopfinalproject
             this.tasksCompleted = tasksCompleted;
             this.isAvailable = isAvailable;
         }
+
         public void SetIsAvailable(bool isAvailable)
         {
             this.isAvailable = isAvailable;

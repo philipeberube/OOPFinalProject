@@ -14,6 +14,16 @@ namespace oopfinalproject
         private double currentLoad;
         private bool isAvailable;
 
+        public Vehicle(int id, string name, DateTime createdDate, double speed, double maxCapacity, double currentLoad, bool isAvailable) : base(id, name, createdDate)
+        {
+            this.speed = speed;
+            this.maxCapacity = maxCapacity;
+            this.currentLoad = currentLoad;
+            this.isAvailable = isAvailable;
+        }
+
+       
+
         public void SetCapacity(double capacity)
         {
             if (capacity <= 0)
