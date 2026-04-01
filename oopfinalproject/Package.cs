@@ -23,6 +23,14 @@ namespace oopfinalproject
             this.status = "Pending"; // Default status
         }
 
+        public int GetPackageID()
+        {
+            return id;
+        }
+        public void SetPackageID(int id)
+        {
+            this.id = id;
+        }
         public double CalculatePriorityScore()
         {
             if (priorityLevel < 1 || priorityLevel > 5)
