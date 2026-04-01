@@ -10,6 +10,11 @@ namespace oopfinalproject
     {
         private bool isElectric;
 
+        public Van(int id, string name, DateTime createdDate, double speed, double maxCapacity, double currentLoad, bool isAvailable, bool isElectric) : base(id, name, createdDate, speed, maxCapacity, currentLoad, isAvailable)
+        {
+            this.isElectric = isElectric;
+        }
+
         public void SetIsElectric(bool isElectric)
         {
             this.isElectric = isElectric;

@@ -12,12 +12,27 @@ namespace oopfinalproject
         private string name;
         private DateTime createdDate;
 
+        public Entity(int id, string name, DateTime createdDate)
+        {
+            this.id = id;
+            this.name = name;
+            this.createdDate = createdDate;
+        }
+
+        public int GetID()
+        {
+            return id;
+        }
+        public void SetID(int id)
+        {
+            this.id = id;
+        } // needs validation still
 
         public void SetName(string name)
         {
             this.name = name;
         } // needs validation still
-
+         public DateTime GetCreatedDate() { return createdDate; }
 
         public string GetName()
         {

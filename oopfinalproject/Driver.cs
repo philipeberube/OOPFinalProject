@@ -10,13 +10,18 @@ namespace oopfinalproject
     {
         private string licenceType;
 
+        public Driver(int id, string name, DateTime createdDate, string licenceType) : base(id, name, createdDate)
+        {
+            this.licenceType = licenceType;
+        }
+
         public void SetLicenceType(string licenceType)
         {
             this.licenceType = licenceType;
         }
         public string GetLicenceType()
         {
-            return this.licenceType;
+            return licenceType;
         }
         public override void Deliver(List<Package> packages)
         {

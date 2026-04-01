@@ -34,7 +34,7 @@ namespace oopfinalproject
             myArray[tail] = item;
             count++;
         }
-        public T dEqueue()
+        public T Dequeue()
         {
             if (count == 0)
             {

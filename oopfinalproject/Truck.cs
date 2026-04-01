@@ -8,7 +8,12 @@ namespace oopfinalproject
 {
     public class Truck : Vehicle
     {
-        double fuelConsumption;
+        private double fuelConsumption;
+
+        public Truck(int id, string name, DateTime createdDate, double speed, double maxCapacity, double currentLoad, bool isAvailable, double fuelConsumption) : base(id, name, createdDate, speed, maxCapacity, currentLoad, isAvailable)
+        {
+            this.fuelConsumption = fuelConsumption;
+        }
 
         public void SetFuelConsumption(double fuelConsumption)
         {

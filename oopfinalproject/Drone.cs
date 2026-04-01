@@ -10,13 +10,18 @@ namespace oopfinalproject
     {
         private double maxDistance;
 
+        public Drone(int id, string name, DateTime createdDate, double speed, double maxCapacity, double currentLoad, bool isAvailable, double maxDistance) : base(id, name, createdDate, speed, maxCapacity, currentLoad, isAvailable)
+        {
+            this.maxDistance = maxDistance;
+        }
+
         public void SetMaxDistance(double maxDistance)
         {
             this.maxDistance = maxDistance;
         }
         public double GetMaxDistance()
         {
-            return this.maxDistance;
+            return maxDistance;
         }
 
         public override void Deliver(List<Package> packages)

@@ -23,6 +23,34 @@ namespace oopfinalproject
             this.status = "Pending"; // Default status
         }
 
+        public int GetPackageID()
+        {
+            return id;
+        }
+        public void SetPackageID(int id)
+        {
+            this.id = id;
+        }
+
+        public string GetDestination()
+        {
+            return destination;
+        }
+
+        public void SetDestination(string destination)
+        {
+            this.destination = destination;
+        }
+
+        public string GetStatus()
+        {
+            return status;
+        }
+
+        public void SetStatus(string status)
+        {
+            this.status = status;
+        }
         public double CalculatePriorityScore()
         {
             if (priorityLevel < 1 || priorityLevel > 5)

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace oopfinalproject
 {
@@ -12,19 +13,20 @@ namespace oopfinalproject
         private int tasksCompleted;
         private bool isAvailable;
 
-        protected Worker(int experienceYears, int tasksCompleted, bool isAvailable)
+        public Worker(int id, int experienceYears, int tasksCompleted, bool isAvailable) : base(id, "Worker", DateTime.Now)
         {
             this.experienceYears = experienceYears;
             this.tasksCompleted = tasksCompleted;
             this.isAvailable = isAvailable;
         }
+
         public void SetIsAvailable(bool isAvailable)
         {
             this.isAvailable = isAvailable;
         }
         public bool GetIsAvailable()
         {
-            return this.isAvailable;
+            return isAvailable;
         }
         public void SetTasksCompleted(int tasksCompleted)
         {
@@ -40,11 +42,11 @@ namespace oopfinalproject
         }
         public int GetExperienceYears()
         {
-            return this.experienceYears;
+            return experienceYears;
         }
         public void AddTask(int tc)
         {
-            tc = this.tasksCompleted;
+            tasksCompleted = tc;
         }
         public virtual double CalculatePerformace(int ey, int tc)
         {
