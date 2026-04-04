@@ -20,6 +20,13 @@ namespace oopfinalproject
             this.isAvailable = isAvailable;
         }
 
+        protected Worker(int experienceYears, int tasksCompleted, bool isAvailable)
+        {
+            this.experienceYears = experienceYears;
+            this.tasksCompleted = tasksCompleted;
+            this.isAvailable = isAvailable;
+        }
+
         public void SetIsAvailable(bool isAvailable)
         {
             this.isAvailable = isAvailable;
