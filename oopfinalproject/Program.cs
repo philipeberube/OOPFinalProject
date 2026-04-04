@@ -13,7 +13,7 @@ namespace oopfinalproject
             {
                 do
                 {
-                    Console.WriteLine("     main menu");
+                    Console.WriteLine("     Main Menu");
                     Console.WriteLine("1: Add entities");
                     Console.WriteLine("2: Assign deliveries");
                     Console.WriteLine("3: Sort ");
@@ -73,7 +73,10 @@ namespace oopfinalproject
             }catch(Exception ex)
             {
                 Console.WriteLine(ex.Message);
-            }catch(NullReferenceException ex)
+            }catch(InvalidDataException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }catch(EmptyStructureException ex)
             {
                 Console.WriteLine(ex.Message);
             }
@@ -84,4 +87,22 @@ namespace oopfinalproject
 
         }
     }
+}
+public class CustomExceptions
+{
+}
+public class InvalidDataException : Exception
+{
+    public InvalidDataException() { }
+    public InvalidDataException(string message) : base(message) { }
+}
+public class OverCapacityException() : Exception
+{
+    public OverCapacityException() { }
+    public OverCapacityException(string message) : base(message) { }
+}
+public class EmptyStructureException : Exception
+{
+    public EmptyStructureException() { }
+    public EmptyStructureException(string message) : base(message) { }
 }
