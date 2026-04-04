@@ -11,7 +11,7 @@
         "projectName": "oopfinalproject",
         "projectPath": "C:\\Users\\thega\\source\\repos\\OOPFinalProject3\\oopfinalproject\\oopfinalproject.csproj",
         "packagesPath": "C:\\Users\\thega\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\thega\\Source\\Repos\\OOPFinalProject3\\oopfinalproject\\obj\\",
+        "outputPath": "C:\\Users\\thega\\source\\repos\\OOPFinalProject3\\oopfinalproject\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
