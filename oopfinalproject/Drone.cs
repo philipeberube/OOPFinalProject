@@ -31,7 +31,14 @@ namespace oopfinalproject
 
         public override void Display()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("     ---- Display --- ");
+            Console.WriteLine($"Id: {SetID}");
+            Console.WriteLine($"Capacity: {SetCapacity}");
+            Console.WriteLine($"Max Distance: {maxDistance}");
+            Console.WriteLine($"Available: {SetIsAvailable}");
+            Console.WriteLine($"Speed: {SetSpeed}");
+            Console.WriteLine($"Current Load: {SetCurrentLoad}");
+            Console.WriteLine($"Max Capacity: {SetMaxCapacity}");
         }
     }
 }
