@@ -13,16 +13,14 @@ namespace oopfinalproject
         private int tasksCompleted;
         private bool isAvailable;
 
-        public Worker(int id, int experienceYears, int tasksCompleted, bool isAvailable) : base(id, "Worker", DateTime.Now)
+        public Worker(int id, string name, DateTime createdDate, int experienceYears, int tasksCompleted, bool isAvailable) : base(id, name, createdDate)
         {
             this.experienceYears = experienceYears;
             this.tasksCompleted = tasksCompleted;
             this.isAvailable = isAvailable;
         }
 
-        public Worker(int id, string name, DateTime createdDate) : base(id, name, createdDate)
-        {
-        }
+        
 
         public void SetIsAvailable(bool isAvailable)
         {
