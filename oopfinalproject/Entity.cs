@@ -25,13 +25,27 @@ namespace oopfinalproject
         }
         public void SetID(int id)
         {
-            this.id = id;
-        } // needs validation still
+            if (id < 0 || id != null)
+            {
+                throw new ArgumentException("Id cannot be empty or less then 0");
+            }
+            else
+            {
+                this.id = id;
+            }
+        } 
 
         public void SetName(string name)
         {
-            this.name = name;
-        } // needs validation still
+            if (string.IsNullOrEmpty(name))
+            {
+                throw new ArgumentException("name cannot be empty");
+            }
+            else
+            {
+                this.name = name;
+            }
+        }
          public DateTime GetCreatedDate() { return createdDate; }
 
         public string GetName()
@@ -42,7 +56,8 @@ namespace oopfinalproject
         public virtual bool Validate()
         {
             return true;
-        } // needs validation still
+        }//validate?
+  
 
         public abstract void Display();
 
