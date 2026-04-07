@@ -73,12 +73,6 @@ namespace oopfinalproject
             }catch(Exception ex)
             {
                 Console.WriteLine(ex.Message);
-            }catch(InvalidDataException ex)
-            {
-                Console.WriteLine(ex.Message);
-            }catch(EmptyStructureException ex)
-            {
-                Console.WriteLine(ex.Message);
             }
 
 
@@ -96,7 +90,7 @@ public class InvalidDataException : Exception
     public InvalidDataException() { }
     public InvalidDataException(string message) : base(message) { }
 }
-public class OverCapacityException() : Exception
+public class OverCapacityException : Exception
 {
     public OverCapacityException() { }
     public OverCapacityException(string message) : base(message) { }
