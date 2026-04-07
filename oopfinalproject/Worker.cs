@@ -20,11 +20,8 @@ namespace oopfinalproject
             this.isAvailable = isAvailable;
         }
 
-        protected Worker(int experienceYears, int tasksCompleted, bool isAvailable)
+        public Worker(int id, string name, DateTime createdDate) : base(id, name, createdDate)
         {
-            this.experienceYears = experienceYears;
-            this.tasksCompleted = tasksCompleted;
-            this.isAvailable = isAvailable;
         }
 
         public void SetIsAvailable(bool isAvailable)
