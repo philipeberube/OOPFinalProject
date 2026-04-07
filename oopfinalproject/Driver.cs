@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace oopfinalproject
 {
-    public class Driver : Vehicle
+    public class Driver : Worker
     {
         private string licenceType;
 
@@ -23,12 +23,14 @@ namespace oopfinalproject
         {
             return licenceType;
         }
-        public override void Deliver(List<Package> packages)
+        
+
+        public override void Display()
         {
             throw new NotImplementedException();
         }
 
-        public override void Display()
+        public override void Performace()
         {
             throw new NotImplementedException();
         }
