@@ -62,29 +62,30 @@ namespace oopfinalproject
                 Console.WriteLine("Junior");
                 return 5;
             }
-            else if (ey < 3 && tc < 15)
+            else if (ey >= 1 && ey < 3 && tc < 15)
             {
                 Console.WriteLine("Intermediate");
-                return 5;
+                return 10;
             }
-            else if (ey < 5 && tc < 15)
+            else if (ey >= 3 && ey < 5 && tc < 15)
             {
                 Console.WriteLine("Senior");
-                return 5;
+                return 15;
             }
-            else if (ey < 8 && tc < 15)
+            else if (ey >= 5 && ey < 8 && tc < 15)
             {
                 Console.WriteLine("Lead");
-                return 5;
+                return 20;
             }
-            else if (ey < 12 && tc < 15)
+            else if (ey >= 8 && ey < 12 && tc < 15)
             {
                 Console.WriteLine("Architect");
-                return 5;
+                return 25;
             }
             else
             {
-                return 5;
+                Console.WriteLine("Expert");
+                return 30;
             }
 
         }
