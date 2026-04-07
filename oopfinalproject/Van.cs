@@ -21,7 +21,7 @@ namespace oopfinalproject
         }
         public bool GetIsElectric()
         {
-            return this.isElectric;
+            return isElectric;
         }
 
         public override void Deliver(List<Package> packages)

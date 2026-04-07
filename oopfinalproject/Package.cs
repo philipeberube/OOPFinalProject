@@ -64,6 +64,8 @@ namespace oopfinalproject
             double priorityScore = (6 - priorityLevel) * weight; // Higher priority level gets a higher score
             return priorityScore;
         }
+        
+        
 
         public void UpdateStatus(string newStatus)
         {
