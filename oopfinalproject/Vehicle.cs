@@ -88,6 +88,6 @@ namespace oopfinalproject
 
             return fuelEfficiency;
         }
-        public abstract void Deliver(List<Package> packages); //List of <Pakage> to be done still
+        public abstract void Deliver(List<Package> packages);
     }
 }
