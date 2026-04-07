@@ -27,12 +27,18 @@ namespace oopfinalproject
 
         public override void Display()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("     ---- Display --- ");
+            Console.WriteLine($"Id: {SetID}");
+            Console.WriteLine($"Name: {SetName}");
+            Console.WriteLine($"LicenceType: {licenceType}");
+            Console.WriteLine($"Tasks Completed: {SetTasksCompleted}");
+            Console.WriteLine($"Available: {SetIsAvailable}");
+            Console.WriteLine($"Experience in years: {SetExperienceYears}");
         }
 
         public override void Performace()
         {
-            throw new NotImplementedException();
+
         }
     }
 }
