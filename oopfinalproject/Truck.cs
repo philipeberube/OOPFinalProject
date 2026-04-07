@@ -12,6 +12,12 @@ namespace oopfinalproject
 
         public Truck(int id, string name, DateTime createdDate, double speed, double maxCapacity, double currentLoad, bool isAvailable, double fuelConsumption) : base(id, name, createdDate, speed, maxCapacity, currentLoad, isAvailable)
         {
+            this.SetID(id);
+            this.SetName(name);
+            this.SetMaxCapacity(maxCapacity);
+            this.SetIsAvailable(isAvailable);
+            this.SetCurrentLoad(currentLoad);
+            this.SetSpeed(speed);
             this.fuelConsumption = fuelConsumption;
         }
 
@@ -31,7 +37,14 @@ namespace oopfinalproject
 
         public override void Display()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("     ---- Display --- ");
+            Console.WriteLine($"Fuel Consumption: {fuelConsumption}");
+            Console.WriteLine($"Id: {SetID}");
+            Console.WriteLine($"Capacity: {SetCapacity}");
+            Console.WriteLine($"Available: {SetIsAvailable}");
+            Console.WriteLine($"Speed: {SetSpeed}");
+            Console.WriteLine($"Current Load: {SetCurrentLoad}");
+            Console.WriteLine($"Max Capacity: {SetMaxCapacity}");
         }
     }
 }
