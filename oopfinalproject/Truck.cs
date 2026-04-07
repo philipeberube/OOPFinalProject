@@ -14,9 +14,10 @@ namespace oopfinalproject
         {
             this.SetID(id);
             this.SetName(name);
-            this.SetCapacity(maxCapacity);
+            this.SetMaxCapacity(maxCapacity);
             this.SetIsAvailable(isAvailable);
-            this.set
+            this.SetCurrentLoad(currentLoad);
+            this.SetSpeed(speed);
             this.fuelConsumption = fuelConsumption;
         }
 
@@ -36,9 +37,14 @@ namespace oopfinalproject
 
         public override void Display()
         {
+            Console.WriteLine("     ---- Display --- ");
             Console.WriteLine($"Fuel Consumption: {fuelConsumption}");
             Console.WriteLine($"Id: {SetID}");
-            Console.WriteLine($"Max Capacity: {SetCapacity}");
+            Console.WriteLine($"Capacity: {SetCapacity}");
+            Console.WriteLine($"Available: {SetIsAvailable}");
+            Console.WriteLine($"Speed: {SetSpeed}");
+            Console.WriteLine($"Current Load: {SetCurrentLoad}");
+            Console.WriteLine($"Max Capacity: {SetMaxCapacity}");
         }
     }
 }

@@ -21,7 +21,25 @@ namespace oopfinalproject
             this.currentLoad = currentLoad;
             this.isAvailable = isAvailable;
         }
-
+        public void SetMaxCapacity(double maxCapacity)
+        {
+            if(maxCapacity <= 0)
+            {
+                throw new Exception("max capacity must be greater than zero");
+            }
+            else if(maxCapacity < currentLoad)
+            {
+                throw new Exception("max capacity cannot be less than current load");
+            }
+            else
+            {
+                this.maxCapacity = maxCapacity;
+            }
+        }
+        public double GetMaxCapacity()
+        {
+            return maxCapacity;
+        }
        public void SetCurrentLoad(double currentLoad)
         {
             if (currentLoad < 0)
