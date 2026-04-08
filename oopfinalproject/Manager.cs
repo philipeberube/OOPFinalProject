@@ -38,7 +38,7 @@ namespace oopfinalproject
 
         public override void Performace()
         {
-            int performance = GetExperienceYears();
+            int performance = teamSize;
 
             if (performance == 0)
             {
