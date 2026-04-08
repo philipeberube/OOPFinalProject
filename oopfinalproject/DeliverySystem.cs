@@ -53,6 +53,34 @@ namespace oopfinalproject
 
         public void ProcessDeliveries()
         {
+            foreach (Package package in allPackages)
+            {
+                Vehicle bestVehicle = null;
+                Driver assignedDriver = null;
+                foreach (Warehouse warehouse in warehouses)
+                {
+                    if (bestVehicle == null)
+                    {
+                        bestVehicle = warehouse.FindBestVehicle(package);
+                        foreach (Driver driver in warehouse.AssignWorker())
+                        {
+                            if (driver.GetIsAvailable())
+                            {
+                                assignedDriver = driver;
+                                break;
+                            }
+                        }
+                        
+                    }
+                    if (bestVehicle != null && assignedDriver != null)
+                    {
+                        // Assign the package to the vehicle and driver
+                        bestVehicle.SetCurrentLoad(package.GetWeight());
+                        assignedDriver.AddTask(1);
+                    }
+                }
+            }
+
             // Logic to assign packages to vehicles and deliver them
         }
 

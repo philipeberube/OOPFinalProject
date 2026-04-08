@@ -63,6 +63,14 @@ namespace oopfinalproject
 
         public List<Package> GetPendingPackages()
         {
+            List <Package> pendingPackages = new List<Package>();
+            foreach (Package package in packages)
+            {
+                if (package.GetStatus().Equals("Pending"))
+                {
+                    pendingPackages.Add(package);
+                }
+            }
             return pendingPackages;
         }
     }

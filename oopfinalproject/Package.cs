@@ -31,7 +31,22 @@ namespace oopfinalproject
         {
             this.id = id;
         }
-
+         public double GetWeight()
+        {
+            return weight;
+        }
+        public void SetWeight(double weight) 
+        { 
+            this.weight = weight; 
+        }
+        public int GetPriorityLevel()
+        {
+            return priorityLevel;
+        }
+        public void SetPriorityLevel(int priorityLevel)
+        {
+            this.priorityLevel = priorityLevel;
+        }
         public string GetDestination()
         {
             return destination;

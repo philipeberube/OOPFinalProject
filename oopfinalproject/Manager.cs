@@ -10,7 +10,7 @@ namespace oopfinalproject
     {
         private int teamSize;
 
-        public Manager(int experienceYears, int tasksCompleted, bool isAvailable, int teamSize) : base(experienceYears, tasksCompleted, isAvailable)
+        public Manager(int id, string name, DateTime createdDate, int experienceYears, int tasksCompleted, bool isAvailable, int teamSize) : base(id, name, createdDate, experienceYears, tasksCompleted, isAvailable)
         {
             this.teamSize = teamSize;
         }
