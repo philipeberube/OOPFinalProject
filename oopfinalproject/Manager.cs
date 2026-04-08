@@ -38,7 +38,36 @@ namespace oopfinalproject
 
         public override void Performace()
         {
-            throw new NotImplementedException();
+            int performance = teamSize;
+
+            if (performance == 0)
+            {
+                Console.WriteLine("Beginner");
+            }
+            else if (performance <= 5)
+            {
+                Console.WriteLine("Junior");
+            }
+            else if (performance <= 10)
+            {
+                Console.WriteLine("Intermediate");
+            }
+            else if (performance <= 15)
+            {
+                Console.WriteLine("Senior");
+            }
+            else if (performance <= 20)
+            {
+                Console.WriteLine("Lead");
+            }
+            else if (performance <= 25)
+            {
+                Console.WriteLine("Architect");
+            }
+            else
+            {
+                Console.WriteLine("Expert");
+            }
         }
     }
 }

@@ -20,8 +20,6 @@ namespace oopfinalproject
             this.isAvailable = isAvailable;
         }
 
-        
-
         public void SetIsAvailable(bool isAvailable)
         {
             this.isAvailable = isAvailable;
