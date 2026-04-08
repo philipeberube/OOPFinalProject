@@ -32,6 +32,10 @@ namespace oopfinalproject
 
         public override void Deliver(List<Package> packages)
         {
+            if (packages == null || packages.Count == 0)
+            {
+                throw new ArgumentException("no packages to deliver");
+            }
             throw new NotImplementedException();
         }
 
