@@ -46,7 +46,7 @@ namespace oopfinalproject
         }
         public void AddTask(int tc)
         {
-            tasksCompleted = tc;
+            tasksCompleted += tc;
         }
         public virtual double CalculatePerformace(int ey, int tc)
         {

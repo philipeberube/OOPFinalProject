@@ -10,7 +10,7 @@ namespace oopfinalproject
     {
         private string licenceType;
 
-        public Driver(int id, string name, DateTime createdDate, string licenceType) : base(id, name, createdDate)
+        public Driver(int id, string name, DateTime createdDate, int experienceYears, int tasksCompleted, bool isAvailable, string licenceType) : base(id, name, createdDate, experienceYears, tasksCompleted, isAvailable)
         {
             this.licenceType = licenceType;
         }
