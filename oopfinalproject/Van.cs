@@ -12,6 +12,12 @@ namespace oopfinalproject
 
         public Van(int id, string name, DateTime createdDate, double speed, double maxCapacity, double currentLoad, bool isAvailable, bool isElectric) : base(id, name, createdDate, speed, maxCapacity, currentLoad, isAvailable)
         {
+            this.SetID(id);
+            this.SetName(name);
+            this.SetMaxCapacity(maxCapacity);
+            this.SetIsAvailable(isAvailable);
+            this.SetCurrentLoad(currentLoad);
+            this.SetSpeed(speed);
             this.isElectric = isElectric;
         }
 
