@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -53,10 +54,139 @@ namespace oopfinalproject
             return name;
         }
 
-        public virtual bool Validate()
+        public virtual bool Validate(string val)
         {
+            switch (val)
+            {
+                case "id":
+                    if (id <= 0)
+                    {
+                        throw new ArgumentException("id cannot be less then 0 or 0 ");
+                    }
+                    if(id >= 5000)
+                    {
+                        throw new ArgumentException("id cannot be greater than 5000");
+                    }
+                    if(id == null)
+                    {
+                        throw new ArgumentException("id cannot be null");
+                    }
+                    for(int i = 0; i < id.ToString().Length; i++)
+                    {
+                        if (!char.IsDigit(id.ToString()[i]))
+                        {
+                            throw new ArgumentException("id can only contain numbers");
+                        }
+                    }
+                    for(int i = 0; i < id.ToString().Length; i++)
+                    {
+                        if (char.IsWhiteSpace(id.ToString()[i]))
+                        {
+                            throw new ArgumentException("id cannot contain spaces");
+                        }
+                    }
+                    for(int i = 0; i < id.ToString().Length; i++)
+                    {
+                        if (char.IsLetter(id.ToString()[i]))
+                        {
+                            throw new ArgumentException("id cannot contain letters");
+                        }
+                    }
+                    for(int i = 0; i < id.ToString().Length; i++)
+                    {
+                        if (char.IsPunctuation(id.ToString()[i]))
+                        {
+                            throw new ArgumentException("id cannot contain puncutation(s)");
+                        }
+                    }
+                    for(int i = 0; i < id.ToString().Length; i++)
+                    {
+                        if (char.IsSymbol(id.ToString()[i]))
+                        {
+                            throw new ArgumentException("id cannot contain symbols");
+                        }
+                    }
+                    
+                    break;
+                case "name":
+                    if (string.IsNullOrEmpty(name))
+                    {
+                        throw new ArgumentException("name cannot be empty");
+                    }
+                    for (int i = 0; i < name.Length; i++)
+                    {
+                        if (!char.IsLetter(name[i]) && !char.IsWhiteSpace(name[i]))
+                        {
+                            throw new ArgumentException("name can only contain letters and spaces");
+                        }
+                    }
+                    for(int i = 0; i < name.Length; i++)
+                    {
+                        if (char.IsWhiteSpace(name[i]) && char.IsWhiteSpace(name[i + 1]))
+                        {
+                            throw new ArgumentException("name connot contain multiple spaces ");
+                        }
+                    }
+                    for(int i = 0; i < name.Length; i++)
+                    {
+                        if (char.IsWhiteSpace(name[0]) || char.IsWhiteSpace(name[name.Length - 1]))
+                        {
+                            throw new ArgumentException("name cannot start or end with a space");
+                        }
+                    }
+                    for(int i = 0; i < name.Length; i++)
+                    {
+                        if(name.Length > 25)
+                        {
+                            throw new ArgumentException("name cannot be longer than 25 characters");
+                        }
+                    }
+                    for(int i = 0; i < name.Length; i++)
+                    {
+                        if(name.Length < 3 )
+                        {
+                            throw new ArgumentException("name cannot be shorter than 3 characters");
+                        }
+                    }
+                    for(int i = 0; i < name.Length; i++)
+                    {
+                        if (char.IsDigit(name[i]))
+                        {
+                            throw new ArgumentException("name cannot contain numbers");
+                        }
+                    }
+                    for(int i =0; i < name.Length; i++)
+                    {
+                        if (char.IsPunctuation(name[i]))
+                        {
+                            throw new ArgumentException("name cannot contain puncutation(s)");
+                        }
+                    }
+                    for(int i = 0; i < name.Length; i++)
+                    {
+                        if (char.IsSymbol(name[i]))
+                        {
+                            throw new ArgumentException("name cannot contain symbols");
+                        }
+                    }
+                    
+                    break;
+
+                case "createdDate":
+                    if (createdDate == null)
+                    {
+                        throw new ArgumentException("date cannot be null");
+                    }
+                    if(createdDate > DateTime.Now)
+                    {
+                        throw new ArgumentException("date cannot be in the future");
+                    }
+                    
+                    break;
+
+            }
             return true;
-        }//validate?
+        }
   
 
         public abstract void Display();
