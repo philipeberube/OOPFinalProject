@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Reflection.PortableExecutable;
 
 namespace oopfinalproject
 {
@@ -35,6 +36,20 @@ namespace oopfinalproject
                         {
                             case 1:
                                 Console.WriteLine("Add entities");
+                                for (int i = 0; i < machine.Length; i++)
+                                {
+                                    Console.WriteLine("What is the id?");
+                                    int id = int.Parse(Console.ReadLine());
+
+                                    Console.WriteLine("Name of worker");
+                                    string name = Console.ReadLine();
+
+                                    Console.WriteLine("Enter todays date");
+                                    DateTime createdDate = DateTime.Parse(Console.ReadLine());
+
+                                    machine[i] = new Entity(id ,name ,createdDate);
+
+                                }
                                 break;
                             case 2:
                                 Console.WriteLine("Assign deliveries");
@@ -74,10 +89,6 @@ namespace oopfinalproject
             {
                 Console.WriteLine(ex.Message);
             }
-
-
-            
-            Console.WriteLine("Hello, World!");
 
         }
     }
