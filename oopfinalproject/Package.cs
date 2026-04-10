@@ -93,6 +93,11 @@ namespace oopfinalproject
 
         public bool IsHeavy()
         {
+            if(weight <= 0)
+            {
+                throw new ArgumentException("weight must be greater than zero");
+            }
+            
             return weight > 100; // Arbitrary threshold for heavy packages
         }
     }
