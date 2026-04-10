@@ -56,27 +56,27 @@ namespace oopfinalproject
             foreach (Package package in allPackages)
             {
                 Vehicle bestVehicle = null;
+                
                 Driver assignedDriver = null;
+                Loader assignedLoader = null;
                 foreach (Warehouse warehouse in warehouses)
                 {
                     if (bestVehicle == null)
                     {
                         bestVehicle = warehouse.FindBestVehicle(package);
-                        foreach (Driver driver in warehouse.AssignWorker())
-                        {
-                            if (driver.GetIsAvailable())
-                            {
-                                assignedDriver = driver;
-                                break;
-                            }
-                        }
-                        
+                        assignedDriver = warehouse.AssignDriver();
+                        assignedLoader = warehouse.AssignLoader();
+
                     }
-                    if (bestVehicle != null && assignedDriver != null)
+
+                    if (bestVehicle != null && assignedDriver != null && assignedLoader != null)
                     {
                         // Assign the package to the vehicle and driver
                         bestVehicle.SetCurrentLoad(package.GetWeight());
+                        assignedDriver.SetIsAvailable(false); // Mark the driver as unavailable
                         assignedDriver.AddTask(1);
+                        assignedLoader.SetIsAvailable(false); // Mark the loader as unavailable
+                        assignedLoader.AddTask(1);
                     }
                 }
             }

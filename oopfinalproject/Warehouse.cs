@@ -60,6 +60,33 @@ namespace oopfinalproject
             }
             return availableWorker;
         }
+        public Driver AssignDriver()
+        {
+            Driver availableDriver = null;
+            foreach (Driver driver in workers)
+            {
+                if (driver.GetIsAvailable())
+                {
+                    availableDriver = driver;
+                    break;
+                }
+            }
+            return availableDriver;
+        }
+
+        public Loader AssignLoader()
+        {
+            Loader availableLoader = null;
+            foreach (Loader loader in workers)
+            {
+                if (loader.GetIsAvailable())
+                {
+                    availableLoader = loader;
+                    break;
+                }
+            }
+            return availableLoader;
+        }
 
         public List<Package> GetPendingPackages()
         {
