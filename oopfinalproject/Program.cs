@@ -5,9 +5,9 @@ namespace oopfinalproject
 {
     internal class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
-
+            DeliverySystem deliverySystem = new DeliverySystem();
             Vehicle[] vehicles = new Vehicle[10];
             int choice = 0;
             try
@@ -39,16 +39,16 @@ namespace oopfinalproject
                                 AddEntities();
                                 break;
                             case 2:
-                                AssignDeliveries();
+                                AssignDeliveries(deliverySystem);
                                 break;
                             case 3:
-                                Sort();
+                                Sort(deliverySystem);
                                 break;
                             case 4:
-                                Search();
+                                Search(deliverySystem);
                                 break;
                             case 5:
-                                RunSimulation();
+                                RunSimulation(deliverySystem);
                                 break;
                             case 6:
                                 Undo();
@@ -79,7 +79,7 @@ namespace oopfinalproject
 
         }
     
-        static public void AddEntities()
+        public static void AddEntities()
         {
             int choice = 0;
             try
@@ -93,13 +93,12 @@ namespace oopfinalproject
                     Console.WriteLine("4: Add Driver");
                     Console.WriteLine("5: Add Loader");
                     Console.WriteLine("6: Add Manager");
-                    Console.WriteLine("7: Add Warehouse");
-                    Console.WriteLine("8: Add Package");
-                    Console.WriteLine("9: Cancel");
+                    
+                    Console.WriteLine("7: Cancel");
                     choice = int.Parse(Console.ReadLine());
-                    if (choice < 1 || choice > 8)
+                    if (choice < 1 || choice > 9)
                     {
-                        throw new ValidationException("invalid choice please enter a number between 1 and 8");
+                        throw new ValidationException("invalid choice please enter a number between 1 and 7");
                     }
 
                     switch (choice)
@@ -190,77 +189,130 @@ namespace oopfinalproject
 
                             Manager manager = new Manager(1, managerName, DateTime.Now, managerExperience, 0, true, teamSize);
                             break;
+                        
                         case 7:
-                            Console.WriteLine("Add Warehouse");
-                            string warehouseName;
-                            Console.WriteLine("Name of warehouse");
-                            warehouseName = Console.ReadLine();
-
-                            Warehouse warehouse = new Warehouse(warehouseName);
-                            break;
-                        case 8:
-                            Console.WriteLine("Add Package");
-                            int priorityLevel;
-                            Console.WriteLine("Priority level of package (1-5)");
-                            priorityLevel = int.Parse(Console.ReadLine());
-                            if (priorityLevel < 1 || priorityLevel > 5)
-                            {
-                                throw new ValidationException("invalid priority level please enter a number between 1 and 5");
-                            }
-
-
-                            Console.WriteLine("Weight of package");
-                            double packageWeight = double.Parse(Console.ReadLine());
-                            Console.WriteLine("Destination of package");
-                            string packageDestination = Console.ReadLine();
-
-                            Package package = new Package(1,  packageWeight, priorityLevel, packageDestination);
-                            break;
-                        case 9:
                             Console.WriteLine("Canceling...");
                             break;
                         default:
                             Console.WriteLine("error");
                             break;
                     }
-                } while (choice != 9);
+                } while (choice != 7);
             } catch (ValidationException ex)
             {
                 Console.WriteLine(ex.Message);
             }
             
-
-
-            //Console.WriteLine("What is the id?");
-            //int id = int.Parse(Console.ReadLine());
-
-            //Console.WriteLine("Name of worker");
-            //string name = Console.ReadLine();
-
-            //Console.WriteLine("Enter todays date");
-            //DateTime createdDate = DateTime.Parse(Console.ReadLine());
         }
 
 
-        static public void AssignDeliveries() 
+         public static void AssignDeliveries(DeliverySystem deliverySystem) 
+        { 
+            int choice = 0;
+            
+            try
+            {
+                do {
+                    Console.WriteLine("Deliveries Main Menu");
+                    Console.WriteLine("1: Add Warehouse");
+                    Console.WriteLine("2: Add Package");
+                    Console.WriteLine("3: Send Delivery");
+                    Console.WriteLine("4: Cancel Delivery");
+                    Console.WriteLine("5: Cancel");
+                    choice = int.Parse(Console.ReadLine());
+                    if (choice < 1 || choice > 5)
+                    {
+                        throw new ValidationException("invalid choice please enter a number between 1 and 5");
+                    }
+                    switch (choice)
+                    {
+                        case 1:
+                            Console.WriteLine("Add Warehouse");
+                            string warehouseName;
+                            Console.WriteLine("Name of warehouse");
+                            warehouseName = Console.ReadLine();
+                            Warehouse warehouse = new Warehouse(warehouseName);
+                            deliverySystem.AddWarehouse(warehouse);
+                            break;
+                        case 2:
+                            Console.WriteLine("Add Package");
+                            int packageId;
+                            Console.WriteLine("ID of package");
+                            packageId = int.Parse(Console.ReadLine());
+                            Console.WriteLine("Priority level of package (1-5)");
+                            int priorityLevel = int.Parse(Console.ReadLine());
+                            if (priorityLevel < 1 || priorityLevel > 5)
+                            {
+                                throw new ValidationException("Priority level must be between 1 and 5.");
+                            }
+                            Console.WriteLine("Weight of package");
+                            double packageWeight = double.Parse(Console.ReadLine());
+                            Console.WriteLine("Destination of package");
+                            string packageDestination = Console.ReadLine();
+
+                            deliverySystem.AddPackage(new Package(packageId, packageWeight, priorityLevel, packageDestination));
+                            break;
+                        case 3:
+                            Console.WriteLine("Sending Delivery");
+                            deliverySystem.ProcessDeliveries();    
+                            break;
+                        case 4:
+                            Console.WriteLine("Canceling Delivery");
+                            int pkId;
+                            Console.WriteLine("Enter package ID to cancel");
+                            pkId = int.Parse(Console.ReadLine());
+                            deliverySystem.CancelDelivery(pkId);
+                            break;
+                        case 5:
+                            Console.WriteLine("Canceling");
+                            break;
+                        default:
+                            Console.WriteLine("Invalid choice");
+                            break;
+                    }
+                } while (choice != 3);
+            }
+            catch (ValidationException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+        }
+
+         public static void Sort(DeliverySystem deliverySystem) 
+        { 
+            Console.WriteLine("Sorting packages by priority score...");
+            deliverySystem.SortPackages();
+        }
+
+        public static void Search(DeliverySystem deliverySystem) 
+        { 
+            Console.WriteLine("Enter package ID to search:");
+            int packageId = int.Parse(Console.ReadLine());
+            Package package = deliverySystem.SearchPackageById(packageId);
+            if (package != null)
+            {
+                Console.WriteLine($"Package found: {package.GetPackageID()}");
+            }
+            else
+            {
+                Console.WriteLine($"Package {packageId} not found.");
+            }
+        }
+
+        public static void RunSimulation(DeliverySystem deliverySystem) 
+        { 
+            Console.WriteLine("Running daily simulation...");
+            deliverySystem.SimulateDay();
+        }
+
+        public static void Undo()
         { }
 
-        static public void Sort() 
+        public static void Save() 
         { }
 
-        static public void Search() 
-        { }
-
-        static public void RunSimulation() 
-        { }
-
-        static public void Undo()
-        { }
-
-        static public void Save() 
-        { }
-
-        static public void Load() 
+        public static void Load() 
         { }
 
     }

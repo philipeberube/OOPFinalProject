@@ -81,8 +81,23 @@ namespace oopfinalproject
                 }
             }
 
+                  
+
             // Logic to assign packages to vehicles and deliver them
         }
+        public void CancelDelivery(int packageId)
+            {
+                Package package = SearchPackageById(packageId);
+                if (package != null)
+                {
+                    allPackages.Remove(package);
+                    Console.WriteLine($"Package {packageId} has been canceled.");
+                }
+                else
+                {
+                    Console.WriteLine($"Package {packageId} not found.");
+                }
+            } 
 
         public void SimulateDay()
         {
