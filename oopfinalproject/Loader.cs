@@ -8,10 +8,12 @@ namespace oopfinalproject
 {
     public class Loader : Worker
     {
-        private double maxLiftWeight;
-
+        private double maxLiftWeight; 
+        private static int loaderId = 1000;
         public Loader(int id, string name, DateTime createdDate, int experienceYears, int tasksCompleted, bool isAvailable, double maxLiftWeight) : base(id, name, createdDate, experienceYears, tasksCompleted, isAvailable)
         {
+            loaderId++;
+            id=loaderId;
             this.maxLiftWeight = maxLiftWeight;
         }
 

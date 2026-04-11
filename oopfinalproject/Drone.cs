@@ -9,10 +9,12 @@ namespace oopfinalproject
     public class Drone : Vehicle
     {
         private double maxDistance;
+        private static int droneId = 5000;
 
         public Drone(int id, string name, DateTime createdDate, double speed, double maxCapacity, double currentLoad, bool isAvailable, double maxDistance) : base(id, name, createdDate, speed, maxCapacity, currentLoad, isAvailable)
         {
-            this.SetID(id);
+            droneId++;
+            id=droneId;
             this.SetName(name);
             this.SetMaxCapacity(maxCapacity);
             this.SetIsAvailable(isAvailable);

@@ -9,9 +9,11 @@ namespace oopfinalproject
     public class Manager : Worker
     {
         private int teamSize;
-
+        private static int managerId =0;
         public Manager(int id, string name, DateTime createdDate, int experienceYears, int tasksCompleted, bool isAvailable, int teamSize) : base(id, name, createdDate, experienceYears, tasksCompleted, isAvailable)
         {
+            managerId++;
+            id=managerId;
             this.teamSize = teamSize;
         }
 

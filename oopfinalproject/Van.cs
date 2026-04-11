@@ -9,10 +9,12 @@ namespace oopfinalproject
     public class Van : Vehicle
     {
         private bool isElectric;
+        private static int vanId = 3000;
 
         public Van(int id, string name, DateTime createdDate, double speed, double maxCapacity, double currentLoad, bool isAvailable, bool isElectric) : base(id, name, createdDate, speed, maxCapacity, currentLoad, isAvailable)
         {
-            this.SetID(id);
+            vanId++;
+            id=vanId;
             this.SetName(name);
             this.SetMaxCapacity(maxCapacity);
             this.SetIsAvailable(isAvailable);

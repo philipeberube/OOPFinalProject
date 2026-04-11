@@ -9,10 +9,11 @@ namespace oopfinalproject
     public class Truck : Vehicle
     {
         private double fuelConsumption;
-
+        private static int truckId = 4000;
         public Truck(int id, string name, DateTime createdDate, double speed, double maxCapacity, double currentLoad, bool isAvailable, double fuelConsumption) : base(id, name, createdDate, speed, maxCapacity, currentLoad, isAvailable)
         {
-            this.SetID(id);
+            truckId++;
+            id=truckId;
             this.SetName(name);
             this.SetMaxCapacity(maxCapacity);
             this.SetIsAvailable(isAvailable);

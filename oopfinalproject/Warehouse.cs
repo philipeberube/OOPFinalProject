@@ -12,7 +12,23 @@ namespace oopfinalproject
         private List<Package> packages;
         private List<Vehicle> vehicles;
         private List<Worker> workers;
-    
+
+        public Warehouse(string name)
+        {
+            this.name = name;
+            packages = new List<Package>();
+            vehicles = new List<Vehicle>();
+            workers = new List<Worker>();
+        }
+        public string GetName()
+        {
+            return name;
+        }
+        public void SetName(string name)
+        {
+            this.name = name;
+        }
+
         public void AddPackage(Package p)
         {
             packages.Add(p);

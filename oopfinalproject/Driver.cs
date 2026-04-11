@@ -9,9 +9,11 @@ namespace oopfinalproject
     public class Driver : Worker
     {
         private string licenceType;
-
+        private static int driverId = 2000;
         public Driver(int id, string name, DateTime createdDate, int experienceYears, int tasksCompleted, bool isAvailable, string licenceType) : base(id, name, createdDate, experienceYears, tasksCompleted, isAvailable)
         {
+            driverId++;
+            id=driverId;
             this.licenceType = licenceType;
         }
 
