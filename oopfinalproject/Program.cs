@@ -146,7 +146,7 @@ namespace oopfinalproject
                     
                     Console.WriteLine("7: Cancel");
                     choice = int.Parse(Console.ReadLine());
-                    if (choice < 1 || choice > 9)
+                    if (choice < 1 || choice > 7)
                     {
                         throw new ValidationException("invalid choice please enter a number between 1 and 7");
                     }
