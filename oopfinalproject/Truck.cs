@@ -55,9 +55,9 @@ namespace oopfinalproject
         public override void Display()
         {
             Console.WriteLine("     ---- Display --- ");
-            Console.WriteLine($"Fuel Consumption: {fuelConsumption}");
             Console.WriteLine($"Id: {SetID}");
             Console.WriteLine($"Capacity: {SetCapacity}");
+            Console.WriteLine($"Fuel Consumption: {fuelConsumption}");
             Console.WriteLine($"Available: {SetIsAvailable}");
             Console.WriteLine($"Speed: {SetSpeed}");
             Console.WriteLine($"Current Load: {SetCurrentLoad}");
