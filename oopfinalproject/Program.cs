@@ -240,7 +240,7 @@ namespace oopfinalproject
                     Console.WriteLine("2: Add Package");
                     Console.WriteLine("3: Send Delivery");
                     Console.WriteLine("4: Cancel Delivery");
-                    Console.WriteLine("5: Cancel");
+                    Console.WriteLine("5: Exit");
                     choice = int.Parse(Console.ReadLine());
                     if (choice < 1 || choice > 5)
                     {
@@ -286,7 +286,7 @@ namespace oopfinalproject
                             deliverySystem.CancelDelivery(pkId);
                             break;
                         case 5:
-                            Console.WriteLine("Canceling");
+                            Console.WriteLine("Exiting");
                             break;
                         default:
                             Console.WriteLine("Invalid choice");
