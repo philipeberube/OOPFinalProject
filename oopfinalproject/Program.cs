@@ -311,7 +311,7 @@ namespace oopfinalproject
                             Console.WriteLine("Invalid choice");
                             break;
                     }
-                } while (choice != 3);
+                } while (choice != 5);
             }
             catch (ValidationException ex)
             {
