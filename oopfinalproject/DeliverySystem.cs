@@ -12,13 +12,27 @@ namespace oopfinalproject
         private List<Warehouse> warehouses;
         private List<Package> allPackages;
 
+        public DeliverySystem()
+        {
+            warehouses = new List<Warehouse>();
+            allPackages = new List<Package>();
+        }
+
         public void AddWarehouse(Warehouse w)
         {
+            if (w == null)
+            {
+                throw new ArgumentNullException("Warehouse cannot be null");
+            }
             warehouses.Add(w);
         }
 
         public void AddPackage(Package p)
         {
+            if (p == null)
+            {
+                throw new ArgumentNullException("Package cannot be null");
+            }
             allPackages.Add(p);
         }
 

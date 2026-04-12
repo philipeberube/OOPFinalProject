@@ -1,15 +1,15 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\thega\\Source\\Repos\\OOPFinalProject4\\oopfinalproject\\oopfinalproject.csproj": {}
+    "C:\\Users\\thega\\source\\repos\\OOPFinalProject4\\oopfinalproject\\oopfinalproject.csproj": {}
   },
   "projects": {
-    "C:\\Users\\thega\\Source\\Repos\\OOPFinalProject4\\oopfinalproject\\oopfinalproject.csproj": {
+    "C:\\Users\\thega\\source\\repos\\OOPFinalProject4\\oopfinalproject\\oopfinalproject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\thega\\Source\\Repos\\OOPFinalProject4\\oopfinalproject\\oopfinalproject.csproj",
+        "projectUniqueName": "C:\\Users\\thega\\source\\repos\\OOPFinalProject4\\oopfinalproject\\oopfinalproject.csproj",
         "projectName": "oopfinalproject",
-        "projectPath": "C:\\Users\\thega\\Source\\Repos\\OOPFinalProject4\\oopfinalproject\\oopfinalproject.csproj",
+        "projectPath": "C:\\Users\\thega\\source\\repos\\OOPFinalProject4\\oopfinalproject\\oopfinalproject.csproj",
         "packagesPath": "C:\\Users\\thega\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\thega\\Source\\Repos\\OOPFinalProject4\\oopfinalproject\\obj\\",
         "projectStyle": "PackageReference",

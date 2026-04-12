@@ -108,13 +108,13 @@ namespace oopfinalproject
                     switch (choice)
                     {
                         case 1:
-                            Console.WriteLine("Add Id");
-                            int id = int.Parse(Console.ReadLine());
                             Console.WriteLine("Add Van");
                             string vanName;
+                            Console.WriteLine("Add Id");
+                            int id = int.Parse(Console.ReadLine());
                             Console.WriteLine("Name of van");
                             vanName = Console.ReadLine();
-                            Console.WriteLine("Speed of van");
+                            Console.WriteLine("Speed of van maximum of 130");
                             double vanSpeed = double.Parse(Console.ReadLine());
                             double vanMaxCapacity;
                             Console.WriteLine("Max capacity of van");
