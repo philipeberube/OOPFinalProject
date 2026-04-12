@@ -319,7 +319,7 @@ namespace oopfinalproject
 }
 
 /*
- * 🚚 MENU REQUIREMENT
+ * MENU REQUIREMENT
 Must include:
  Add entities
  Assign deliveries

@@ -38,7 +38,19 @@ namespace oopfinalproject
             {
                 throw new ArgumentException("no packages to deliver");
             }
-            throw new NotImplementedException();
+            foreach(Package package in packages)
+            {
+                if(GetCurrentLoad() + package.GetWeight() > GetMaxCapacity())
+                {
+                    throw new ArgumentException("exceeding max capacity");
+                }
+                else
+                {
+                    SetCurrentLoad(GetCurrentLoad() + package.GetWeight());
+                    package.SetStatus("Delevered");
+                }
+            }
+
         }
 
         public override void Display()
