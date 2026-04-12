@@ -43,18 +43,54 @@ namespace oopfinalproject
                                 AddEntities();
                                 break;
                             case 2:
+                                if(vehicles.Length == null || vehicles.Length == 0)
+                                {
+                                    throw new Exception("No vehicles added yet please add Vehicle(s) before assigning deliveries");
+                                }
                                 AssignDeliveries(deliverySystem);
                                 break;
                             case 3:
-                                Sort(deliverySystem);
+                                if (vehicles.Length == null || vehicles.Length == 0)
+                                {
+                                    throw new Exception("No vehicles added yet please add Vehicle(s) to sort");
+                                }
+                                else if(deliverySystem == null)
+                                {
+                                    throw new Exception("No deliveries assigned yet please assign deliveries before sorting");
+                                }
+                                    Sort(deliverySystem);
                                 break;
                             case 4:
+                                if (vehicles.Length == null || vehicles.Length == 0)
+                                {
+                                    throw new Exception("No vehicles added yet please add Vehicle(s) to Search for delivery(s)");
+                                }
+                                else if (deliverySystem == null)
+                                {
+                                    throw new Exception("No deliveries assigned yet please assign deliveries before searching");
+                                }
                                 Search(deliverySystem);
                                 break;
                             case 5:
+                                if (vehicles.Length == null || vehicles.Length == 0)
+                                {
+                                    throw new Exception("No vehicles added yet please add Vehicle(s) to run Simulation for delivery(s)");
+                                }
+                                else if (deliverySystem == null)
+                                {
+                                    throw new Exception("No deliveries assigned yet please assign deliveries before running simulation");
+                                }
                                 RunSimulation(deliverySystem);
                                 break;
                             case 6:
+                                if (vehicles.Length == null || vehicles.Length == 0)
+                                {
+                                    throw new Exception("No vehicles added yet please add Vehicle(s) to undo");
+                                }
+                                else if (deliverySystem == null)
+                                {
+                                    throw new Exception("No deliveries assigned yet please assign deliveries before undoing");
+                                }
                                 Undo();
                                 break;
                             case 7:
