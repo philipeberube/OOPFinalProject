@@ -50,6 +50,11 @@ namespace oopfinalproject
         }
         public virtual double CalculatePerformace(int ey, int tc)
         {
+            if (GetID() == null || GetName() == null)
+            {
+                throw new ArgumentException("No employee(s) added yet");
+            }
+
             if (ey == 0 || tc == 0)
             {
                 Console.WriteLine("Beginner");

@@ -41,6 +41,10 @@ namespace oopfinalproject
         public override void Performace()
         {
             int performance = GetExperienceYears();
+            if(GetID() == null || GetName() == null)
+            {
+                throw new ArgumentException("No employee(s) added yet");
+            }
 
             if (performance == 0)
             {

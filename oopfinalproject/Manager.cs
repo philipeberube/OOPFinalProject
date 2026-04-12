@@ -40,6 +40,11 @@ namespace oopfinalproject
 
         public override void Performace()
         {
+            if (GetID() == null || GetName() == null)
+            {
+                throw new ArgumentException("No employee(s) added yet");
+            }
+
             int performance = teamSize;
 
             if (performance == 0)

@@ -9,6 +9,16 @@ namespace oopfinalproject
         {
             DeliverySystem deliverySystem = new DeliverySystem();
             Vehicle[] vehicles = new Vehicle[10];
+            Worker[] employee = new Worker[8] {
+                new Manager(1, "Alexander Smith", DateTime.Now, 12, 2000, true, 5),
+                new Driver(2, "Phill Johnson", DateTime.Now, 8, 1203, true, "B"),
+                new Loader(3, "Kevin Davis", DateTime.Now, 6, 756, true, 5000),
+                new Driver(4, "Andrew Brown", DateTime.Now, 6, 876, true, "B"),
+                new Driver(5, "Becky Kalaway", DateTime.Now, 4, 750, true, "B"),
+                new Driver(6, "Donald TBone", DateTime.Now, 3, 485, true, "B"),
+                new Loader(7, "Travis Kelly", DateTime.Now, 2, 250, true, 4508),
+                new Loader(8, "Mark Thompson", DateTime.Now, 0, 0, true, 2500),
+                };
             int choice = 0;
             try
             {
