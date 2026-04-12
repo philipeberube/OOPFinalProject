@@ -36,6 +36,10 @@ namespace oopfinalproject
                         switch (choice)
                         {
                             case 1:
+                                if(vehicles.Length >= 10)
+                                {
+                                    throw new Exception("Vehicle limit has reached Max 10 vehicles");
+                                }
                                 AddEntities();
                                 break;
                             case 2:
@@ -100,6 +104,7 @@ namespace oopfinalproject
                     {
                         throw new ValidationException("invalid choice please enter a number between 1 and 7");
                     }
+                    
 
                     switch (choice)
                     {
