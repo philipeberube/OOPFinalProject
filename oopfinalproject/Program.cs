@@ -208,7 +208,6 @@ namespace oopfinalproject
                             int managerExperience = int.Parse(Console.ReadLine());
                             Console.WriteLine("number of workers under manager");
                             int teamSize = int.Parse(Console.ReadLine());
-
                             Manager manager = new Manager(idManager, managerName, DateTime.Now, managerExperience, 0, true, teamSize);
                             Console.WriteLine("Manager added Successfully");
                             break;
