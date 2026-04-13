@@ -47,11 +47,10 @@ namespace oopfinalproject
                                     Sort(deliverySystem);
                                 break;
                             case 4:
-
                                 Search(deliverySystem);
                                 break;
                             case 5:
-                                //RunSimulation(deliverySystem);
+                                RunSimulation(deliverySystem);
                                 break;
                             case 6:
 
