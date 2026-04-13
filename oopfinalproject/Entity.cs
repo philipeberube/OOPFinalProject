@@ -139,7 +139,7 @@ namespace oopfinalproject
                 }
             }catch(ArgumentException ex)
             {
-                Console.WriteLine("Error" + ex.Message);
+                Console.WriteLine(ex.Message);
             }
             return true;
         }
