@@ -56,84 +56,90 @@ namespace oopfinalproject
 
         public virtual bool Validate(string val)
         {
-            switch (val)
+            try
             {
-                case "name":
-                    if (string.IsNullOrEmpty(name))
-                    {
-                        throw new ArgumentException("name cannot be empty");
-                    }
-                    for (int i = 0; i < name.Length; i++)
-                    {
-                        if (!char.IsLetter(name[i]) && !char.IsWhiteSpace(name[i]))
+                switch (val)
+                {
+                    case "name":
+                        if (string.IsNullOrEmpty(name))
                         {
-                            throw new ArgumentException("name can only contain letters and spaces");
+                            throw new ArgumentException("name cannot be empty");
                         }
-                    }
-                    for(int i = 0; i < name.Length; i++)
-                    {
-                        if (char.IsWhiteSpace(name[i]) && char.IsWhiteSpace(name[i + 1]))
+                        for (int i = 0; i < name.Length; i++)
                         {
-                            throw new ArgumentException("name connot contain multiple spaces ");
+                            if (!char.IsLetter(name[i]) && !char.IsWhiteSpace(name[i]))
+                            {
+                                throw new ArgumentException("name can only contain letters and spaces");
+                            }
                         }
-                    }
-                    for(int i = 0; i < name.Length; i++)
-                    {
-                        if (char.IsWhiteSpace(name[0]) || char.IsWhiteSpace(name[name.Length - 1]))
+                        for (int i = 0; i < name.Length; i++)
                         {
-                            throw new ArgumentException("name cannot start or end with a space");
+                            if (char.IsWhiteSpace(name[i]) && char.IsWhiteSpace(name[i + 1]))
+                            {
+                                throw new ArgumentException("name connot contain multiple spaces ");
+                            }
                         }
-                    }
-                    for(int i = 0; i < name.Length; i++)
-                    {
-                        if(name.Length > 25)
+                        for (int i = 0; i < name.Length; i++)
                         {
-                            throw new ArgumentException("name cannot be longer than 25 characters");
+                            if (char.IsWhiteSpace(name[0]) || char.IsWhiteSpace(name[name.Length - 1]))
+                            {
+                                throw new ArgumentException("name cannot start or end with a space");
+                            }
                         }
-                    }
-                    for(int i = 0; i < name.Length; i++)
-                    {
-                        if(name.Length < 3 )
+                        for (int i = 0; i < name.Length; i++)
                         {
-                            throw new ArgumentException("name cannot be shorter than 3 characters");
+                            if (name.Length > 25)
+                            {
+                                throw new ArgumentException("name cannot be longer than 25 characters");
+                            }
                         }
-                    }
-                    for(int i = 0; i < name.Length; i++)
-                    {
-                        if (char.IsDigit(name[i]))
+                        for (int i = 0; i < name.Length; i++)
                         {
-                            throw new ArgumentException("name cannot contain numbers");
+                            if (name.Length < 3)
+                            {
+                                throw new ArgumentException("name cannot be shorter than 3 characters");
+                            }
                         }
-                    }
-                    for(int i =0; i < name.Length; i++)
-                    {
-                        if (char.IsPunctuation(name[i]))
+                        for (int i = 0; i < name.Length; i++)
                         {
-                            throw new ArgumentException("name cannot contain puncutation(s)");
+                            if (char.IsDigit(name[i]))
+                            {
+                                throw new ArgumentException("name cannot contain numbers");
+                            }
                         }
-                    }
-                    for(int i = 0; i < name.Length; i++)
-                    {
-                        if (char.IsSymbol(name[i]))
+                        for (int i = 0; i < name.Length; i++)
                         {
-                            throw new ArgumentException("name cannot contain symbols");
+                            if (char.IsPunctuation(name[i]))
+                            {
+                                throw new ArgumentException("name cannot contain puncutation(s)");
+                            }
                         }
-                    }
-                    
-                    break;
+                        for (int i = 0; i < name.Length; i++)
+                        {
+                            if (char.IsSymbol(name[i]))
+                            {
+                                throw new ArgumentException("name cannot contain symbols");
+                            }
+                        }
 
-                case "createdDate":
-                    if (createdDate == null)
-                    {
-                        throw new ArgumentException("date cannot be null");
-                    }
-                    if(createdDate > DateTime.Now)
-                    {
-                        throw new ArgumentException("date cannot be in the future");
-                    }
-                    
-                    break;
+                        break;
 
+                    case "createdDate":
+                        if (createdDate == null)
+                        {
+                            throw new ArgumentException("date cannot be null");
+                        }
+                        if (createdDate > DateTime.Now)
+                        {
+                            throw new ArgumentException("date cannot be in the future");
+                        }
+
+                        break;
+
+                }
+            }catch(ArgumentException ex)
+            {
+                Console.WriteLine("Error" + ex.Message);
             }
             return true;
         }
