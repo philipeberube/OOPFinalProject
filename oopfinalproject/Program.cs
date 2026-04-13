@@ -63,7 +63,7 @@ namespace oopfinalproject
                                 int saveLoadChoice = int.Parse(Console.ReadLine());
                                 if (saveLoadChoice == 1)
                                 {
-                                    Save(deliverySystem.GetWarehouses()[1], deliverySystem);
+                                    Save(warehouse, deliverySystem);
                                 }
                                 else if (saveLoadChoice == 2)
                                 {
@@ -370,17 +370,17 @@ namespace oopfinalproject
             foreach (Package package in warehouses.GetPackages())
             {
                 string data1 = $"Package ID: {package.GetPackageID()}, Weight: {package.GetWeight()}, Priority Level: {package.GetPriorityLevel()}, Destination: {package.GetDestination()}, Status: {package.GetStatus()}";
-                File.AppendAllText("data.txt", data1 + Environment.NewLine);
+                File.AppendAllText("data.txt", data1);
             }
             foreach (Worker worker in warehouses.GetWorkers())
             {
                 string data2 = $"Worker ID: {worker.GetID()}, Name: {worker.GetName()}, Experience: {worker.GetExperienceYears()}, Available: {worker.GetIsAvailable()}";
-                File.AppendAllText("data.txt", data2 + Environment.NewLine);
+                File.AppendAllText("data.txt", data2);
             }
             foreach (Warehouse warehouse in deliverySystem.GetWarehouses())
             {
                 string data3 = $"Warehouse Name: {warehouse.GetName()}";
-                File.AppendAllText("data.txt", data3 + Environment.NewLine);
+                File.AppendAllText("data.txt", data3);
             }
 
             Console.WriteLine("Data saved successfully.");
@@ -400,12 +400,6 @@ namespace oopfinalproject
 /*
  * MENU REQUIREMENT
 Must include:
- Add entities
- Assign deliveries
- Sort
- Search
- Run simulation
- Undo
  Save/Load
  * */
 
