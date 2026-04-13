@@ -250,6 +250,7 @@ namespace oopfinalproject
             
             try
             {
+                CheckVehicleExiting(deliverySystem);
                 do {
                     Console.WriteLine("Deliveries Main Menu");
                     Console.WriteLine("1: Add Warehouse");
@@ -316,6 +317,17 @@ namespace oopfinalproject
             }
 
         }
+        public static void CheckVehicleExiting(DeliverySystem deliverySystem)
+        {
+            Vehicle vehicle = deliverySystem.GetWarehouses()[0].GetVehicles()[0];
+
+            if(vehicle == null)
+            {
+                Console.WriteLine("no vehicles please add");
+                return;
+            }
+            
+        }
 
          public static void Sort(DeliverySystem deliverySystem) 
         { 
@@ -324,7 +336,8 @@ namespace oopfinalproject
         }
 
         public static void Search(DeliverySystem deliverySystem) 
-        { 
+        {
+            CheckVehicleExiting(deliverySystem);
             Console.WriteLine("Enter package ID to search:");
             int packageId = int.Parse(Console.ReadLine());
             Package package = deliverySystem.SearchPackageById(packageId);
