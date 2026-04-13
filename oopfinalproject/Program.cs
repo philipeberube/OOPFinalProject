@@ -334,8 +334,14 @@ namespace oopfinalproject
             deliverySystem.SimulateDay();
         }
 
-        public static void Undo()
-        { }
+        public static void Undo(DeliverySystem deliverySystem)
+        {
+            Console.WriteLine("Enter package ID to Undo delivery:");
+            int packageId = int.Parse(Console.ReadLine());
+            Console.WriteLine("Running Undo operation");
+            deliverySystem.CancelDelivery(packageId);
+            Console.WriteLine("Undo delivery order successfully");
+        }
 
         public static void Save(Warehouse warehouses, DeliverySystem deliverySystem)
         {
