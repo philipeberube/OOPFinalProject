@@ -317,15 +317,6 @@ namespace oopfinalproject
             }
             
         }
-        public static void CheckWarehouseExiting(Warehouse warehouse)
-        {
-            Warehouse exist = warehouse.GetVehicles()[0].GetID() != 0 ? warehouse : null;
-            if(exist == null)
-            {
-                Console.WriteLine("No warehouses please add");
-                return;
-            }
-        }
 
          public static void Sort(DeliverySystem deliverySystem) 
         { 
@@ -368,7 +359,6 @@ namespace oopfinalproject
         public static void Save(Warehouse warehouses, DeliverySystem deliverySystem)
         {
             CheckVehicleExiting(deliverySystem);
-            CheckWarehouseExiting(warehouses);
 
             Console.WriteLine("Saving data...");
             foreach (Vehicle vehicle in warehouses.GetVehicles())
