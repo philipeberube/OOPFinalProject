@@ -340,7 +340,6 @@ namespace oopfinalproject
             int packageId = int.Parse(Console.ReadLine());
             Console.WriteLine("Running Undo operation");
             deliverySystem.CancelDelivery(packageId);
-            Console.WriteLine("Undo delivery order successfully");
         }
 
         public static void Save(Warehouse warehouses, DeliverySystem deliverySystem)
