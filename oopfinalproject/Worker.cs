@@ -11,7 +11,7 @@ namespace oopfinalproject
     {
         private int experienceYears;
         private int tasksCompleted;
-        private bool isAvailable;
+        private bool isAvailable = true;
 
         public Worker(int id, string name, DateTime createdDate, int experienceYears, int tasksCompleted, bool isAvailable) : base(id, name, createdDate)
         {

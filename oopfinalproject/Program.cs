@@ -7,6 +7,7 @@ namespace oopfinalproject
     {
         public static void Main(string[] args)
         {
+            Warehouse warehouse = new Warehouse("Main Warehouse");
             DeliverySystem deliverySystem = new DeliverySystem();
             Vehicle[] vehicles = new Vehicle[10];
             int choice = 0;
@@ -38,7 +39,7 @@ namespace oopfinalproject
                         switch (choice)
                         {
                             case 1:
-                                AddEntities();
+                                AddEntities(warehouse);
                                 break;
                             case 2:
                                 AssignDeliveries(deliverySystem);
@@ -51,7 +52,7 @@ namespace oopfinalproject
                                 Search(deliverySystem);
                                 break;
                             case 5:
-                                //RunSimulation(deliverySystem);
+                                RunSimulation(deliverySystem, warehouse);
                                 break;
                             case 6:
 
@@ -97,7 +98,7 @@ namespace oopfinalproject
 
         }
     
-        public static void AddEntities()
+        public static void AddEntities(Warehouse warehouse)
         {
             int choice = 0;
             try
@@ -136,12 +137,9 @@ namespace oopfinalproject
                             bool vanElectric = false;
                             Console.WriteLine("Is the van electric? (y/n)");
                             string electricInput = Console.ReadLine();
-                            if (electricInput.ToLower() == "y")
-                            {
-                                vanElectric = true;
-                            }
-
+                                                        
                             Van van = new Van(1, vanName, DateTime.Now, vanSpeed, vanMaxCapacity, 0, true, vanElectric);
+                            warehouse.AddVehicle(van);
                             Console.WriteLine("Van added Successfully");
                             break;
                         case 2:
@@ -160,6 +158,7 @@ namespace oopfinalproject
                             double truckFuelConsumption = double.Parse(Console.ReadLine());
 
                             Truck truck = new Truck(1, truckName, DateTime.Now, truckSpeed, truckMaxCapacity, 0, true, truckFuelConsumption);
+                            warehouse.AddVehicle(truck);
                             Console.WriteLine("Truck added Successfully");
                             break;
                         case 3:
@@ -177,6 +176,7 @@ namespace oopfinalproject
                             double droneMaxDistance = double.Parse(Console.ReadLine());
 
                             Drone drone = new Drone(1, droneName, DateTime.Now, droneSpeed, droneMaxCapacity, 0, true, droneMaxDistance);
+                            warehouse.AddVehicle(drone);
                             Console.WriteLine("Drone added Successfully");
                             break;
                         case 4:
@@ -190,6 +190,7 @@ namespace oopfinalproject
                             string driverLicenseType = Console.ReadLine();
 
                             Driver driver = new Driver(1, driverName, DateTime.Now, driverExperience, 0, true, driverLicenseType);
+                            warehouse.AddWorker(driver);
                             Console.WriteLine("Driver added Successfully");
                             break;
                         case 5:
@@ -203,6 +204,7 @@ namespace oopfinalproject
                             double loaderMaxLiftWeight = double.Parse(Console.ReadLine());
 
                             Loader loader = new Loader(1, loaderName, DateTime.Now, loaderExperience, 0, true, loaderMaxLiftWeight);
+                            warehouse.AddWorker(loader);
                             Console.WriteLine("Loader added Successfully");
                             break;
                         case 6:
@@ -215,6 +217,7 @@ namespace oopfinalproject
                             Console.WriteLine("number of workers under manager");
                             int teamSize = int.Parse(Console.ReadLine());
                             Manager manager = new Manager(1, managerName, DateTime.Now, managerExperience, 0, true, teamSize);
+                            warehouse.AddWorker(manager);
                             Console.WriteLine("Manager added Successfully");
                             break;
                         
@@ -328,10 +331,10 @@ namespace oopfinalproject
             }
         }
 
-        public static void RunSimulation(DeliverySystem deliverySystem)
+        public static void RunSimulation(DeliverySystem deliverySystem, Warehouse warehouse)
         {
             Console.WriteLine("Running daily simulation...");
-            deliverySystem.SimulateDay();
+            deliverySystem.SimulateDay(warehouse);
         }
 
         public static void Undo(DeliverySystem deliverySystem)

@@ -36,9 +36,17 @@ namespace oopfinalproject
         {
             return vehicles;
         }
+        public void AddVehicle(Vehicle v)
+        {
+            vehicles.Add(v);
+        }
         public List<Worker> GetWorkers()
         {
             return workers;
+        }
+        public void AddWorker(Worker w)
+        {
+            workers.Add(w);
         }
 
         public void AddPackage(Package p)
@@ -127,6 +135,23 @@ namespace oopfinalproject
                 }
             }
             return pendingPackages;
+        }
+
+        public virtual void displayWarehouse()
+        {
+            Console.WriteLine("     ---- Display --- ");
+            foreach (Package package in packages)
+            {
+                Console.WriteLine($"Package ID: {package.GetPackageID()}, Status: {package.GetStatus()}, Destination: {package.GetDestination()}");
+            }
+             foreach (Vehicle vehicle in vehicles)
+            {
+                Console.WriteLine($"Vehicle ID: {vehicle.GetID()}, Current Load: {vehicle.GetCurrentLoad()}, Max Capacity: {vehicle.GetMaxCapacity()}, Availability: {vehicle.GetIsAvailable()}, Vehicle type: {vehicle.GetType().Name}");
+            }
+             foreach (Worker worker in workers)
+            {
+                Console.WriteLine($"Worker ID: {worker.GetID()}, Name: {worker.GetName()}, Available: {worker.GetIsAvailable()}, Worker type: {worker.GetType().Name}");
+            }
         }
     }
 }

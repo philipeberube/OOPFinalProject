@@ -132,13 +132,14 @@ namespace oopfinalproject
             
         }
 
-        public void SimulateDay()
+        public void SimulateDay(Warehouse warehouse)
         {
             // Main simulation logic for a day
             GetWarehouses();
             GetAllPackages();
             SortPackages();
             ProcessDeliveries();
+            warehouse.displayWarehouse();
             display();
 
         }
