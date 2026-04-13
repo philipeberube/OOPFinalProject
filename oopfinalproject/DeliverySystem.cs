@@ -35,7 +35,15 @@ namespace oopfinalproject
             }
             allPackages.Add(p);
         }
+        public List<Warehouse> GetWarehouses()
+        {
+            return warehouses;
+        }
 
+        public List<Package> GetAllPackages()
+        {
+            return allPackages;
+        }
         public Package SearchPackageById(int id)
         {
             foreach (Package package in allPackages)
@@ -111,11 +119,16 @@ namespace oopfinalproject
                 {
                     Console.WriteLine($"Package {packageId} not found.");
                 }
-            } 
+            }
 
         public void SimulateDay()
         {
             // Main simulation logic for a day
+            GetWarehouses();
+            GetAllPackages();
+            SortPackages();
+            ProcessDeliveries();
+
         }
     }
 }
