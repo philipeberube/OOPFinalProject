@@ -58,56 +58,6 @@ namespace oopfinalproject
         {
             switch (val)
             {
-                case "id":
-                    if (id <= 0)
-                    {
-                        throw new ArgumentException("id cannot be less then 0 or 0 ");
-                    }
-                    if(id >= 5000)
-                    {
-                        throw new ArgumentException("id cannot be greater than 5000");
-                    }
-                    if(id == null)
-                    {
-                        throw new ArgumentException("id cannot be null");
-                    }
-                    for(int i = 0; i < id.ToString().Length; i++)
-                    {
-                        if (!char.IsDigit(id.ToString()[i]))
-                        {
-                            throw new ArgumentException("id can only contain numbers");
-                        }
-                    }
-                    for(int i = 0; i < id.ToString().Length; i++)
-                    {
-                        if (char.IsWhiteSpace(id.ToString()[i]))
-                        {
-                            throw new ArgumentException("id cannot contain spaces");
-                        }
-                    }
-                    for(int i = 0; i < id.ToString().Length; i++)
-                    {
-                        if (char.IsLetter(id.ToString()[i]))
-                        {
-                            throw new ArgumentException("id cannot contain letters");
-                        }
-                    }
-                    for(int i = 0; i < id.ToString().Length; i++)
-                    {
-                        if (char.IsPunctuation(id.ToString()[i]))
-                        {
-                            throw new ArgumentException("id cannot contain puncutation(s)");
-                        }
-                    }
-                    for(int i = 0; i < id.ToString().Length; i++)
-                    {
-                        if (char.IsSymbol(id.ToString()[i]))
-                        {
-                            throw new ArgumentException("id cannot contain symbols");
-                        }
-                    }
-                    
-                    break;
                 case "name":
                     if (string.IsNullOrEmpty(name))
                     {
