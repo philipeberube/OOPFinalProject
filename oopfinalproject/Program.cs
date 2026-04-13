@@ -189,7 +189,7 @@ namespace oopfinalproject
                             Console.WriteLine("license type of driver");
                             string driverLicenseType = Console.ReadLine();
 
-                            Driver driver = new Driver(idDriver, driverName, DateTime.Now, driverExperience,0,true, driverLicenseType);
+                            Driver driver = new Driver(1, driverName, DateTime.Now, driverExperience,0,true, driverLicenseType);
                             Console.WriteLine("Driver added Successfully");
                             break;
                         case 5:
