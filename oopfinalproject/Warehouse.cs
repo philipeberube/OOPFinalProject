@@ -28,6 +28,18 @@ namespace oopfinalproject
         {
             this.name = name;
         }
+        public List<Package> GetPackages()
+        {
+            return packages;
+        }
+        public List<Vehicle> GetVehicles()
+        {
+            return vehicles;
+        }
+        public List<Worker> GetWorkers()
+        {
+            return workers;
+        }
 
         public void AddPackage(Package p)
         {

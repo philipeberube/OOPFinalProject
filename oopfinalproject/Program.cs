@@ -10,6 +10,8 @@ namespace oopfinalproject
             DeliverySystem deliverySystem = new DeliverySystem();
             Vehicle[] vehicles = new Vehicle[10];
             int choice = 0;
+            string filepath = "data.txt";
+            string createText = " ";
             try
             {
                 do
@@ -49,15 +51,29 @@ namespace oopfinalproject
                                 Search(deliverySystem);
                                 break;
                             case 5:
-                                RunSimulation(deliverySystem);
+                                //RunSimulation(deliverySystem);
                                 break;
                             case 6:
 
                                 Undo();
                                 break;
                             case 7:
-                                Console.WriteLine("Save/Load");
-                                Console.WriteLine("Succesfully Save/Load");
+                                Console.WriteLine("1: Save");
+                                Console.WriteLine("2: Load");
+                                int saveLoadChoice = int.Parse(Console.ReadLine());
+                                if (saveLoadChoice == 1)
+                                {
+                                    Save(deliverySystem.GetWarehouses()[1], deliverySystem);
+                                }
+                                else if (saveLoadChoice == 2)
+                                {
+                                    Load();
+                                }
+                                else
+                                {
+                                    Console.WriteLine("Invalid choice for save/load");
+                                }
+
                                 break;
                             case 8:
                                 Console.WriteLine("Byee byee");
@@ -322,8 +338,8 @@ namespace oopfinalproject
             }
         }
 
-        public static void RunSimulation(DeliverySystem deliverySystem) 
-        { 
+        public static void RunSimulation(DeliverySystem deliverySystem)
+        {
             Console.WriteLine("Running daily simulation...");
             deliverySystem.SimulateDay();
         }
@@ -331,11 +347,40 @@ namespace oopfinalproject
         public static void Undo()
         { }
 
-        public static void Save() 
-        { }
+        public static void Save(Warehouse warehouses, DeliverySystem deliverySystem)
+        {
+            Console.WriteLine("Saving data...");
+            foreach (Vehicle vehicle in warehouses.GetVehicles())
+            {
+                string data = $"Vehicle ID: {vehicle.GetID()}, Name: {vehicle.GetName()}, Speed: {vehicle.GetSpeed()}, Max Capacity: {vehicle.GetMaxCapacity()}, Current Load: {vehicle.GetCurrentLoad()}, Available: {vehicle.GetIsAvailable()}";
+                File.AppendAllText("data.txt", data);
+            }
+            foreach (Package package in warehouses.GetPackages())
+            {
+                string data1 = $"Package ID: {package.GetPackageID()}, Weight: {package.GetWeight()}, Priority Level: {package.GetPriorityLevel()}, Destination: {package.GetDestination()}, Status: {package.GetStatus()}";
+                File.AppendAllText("data.txt", data1 + Environment.NewLine);
+            }
+            foreach (Worker worker in warehouses.GetWorkers())
+            {
+                string data2 = $"Worker ID: {worker.GetID()}, Name: {worker.GetName()}, Experience: {worker.GetExperienceYears()}, Available: {worker.GetIsAvailable()}";
+                File.AppendAllText("data.txt", data2 + Environment.NewLine);
+            }
+            foreach (Warehouse warehouse in deliverySystem.GetWarehouses())
+            {
+                string data3 = $"Warehouse Name: {warehouse.GetName()}";
+                File.AppendAllText("data.txt", data3 + Environment.NewLine);
+            }
 
-        public static void Load() 
-        { }
+            Console.WriteLine("Data saved successfully.");
+        }
+
+        public static void Load()
+        {
+            Console.WriteLine("Loading data...");
+            string data = File.ReadAllText("data.txt");
+
+            Console.WriteLine("Data loaded successfully.");
+        }
 
     }
 }
