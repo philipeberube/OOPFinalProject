@@ -140,7 +140,8 @@ namespace oopfinalproject
                             {
                                 vanElectric = true;
                             }
-
+                            Entity check = new Van(1, vanName, DateTime.Now, vanSpeed, vanMaxCapacity, 0, true, vanElectric);
+                            check.Validate(vanName);
                             Van van = new Van(1, vanName, DateTime.Now, vanSpeed, vanMaxCapacity, 0, true, vanElectric);
                             Console.WriteLine("Van added Successfully");
                             break;
@@ -159,6 +160,8 @@ namespace oopfinalproject
                             Console.WriteLine("Fuel consumption of truck");
                             double truckFuelConsumption = double.Parse(Console.ReadLine());
 
+                            Entity checkTruck = new Truck(1, truckName, DateTime.Now, truckSpeed, truckMaxCapacity, 0, true, truckFuelConsumption);
+                            checkTruck.Validate(truckName);
                             Truck truck = new Truck(1, truckName, DateTime.Now, truckSpeed, truckMaxCapacity, 0, true, truckFuelConsumption);
                             Console.WriteLine("Truck added Successfully");
                             break;
@@ -176,6 +179,8 @@ namespace oopfinalproject
                             Console.WriteLine("Max distance of drone");
                             double droneMaxDistance = double.Parse(Console.ReadLine());
 
+                            Entity checkDrone = new Drone(1, droneName, DateTime.Now, droneSpeed, droneMaxCapacity, 0, true, droneMaxDistance);
+                            checkDrone.Validate(droneName);
                             Drone drone = new Drone(1, droneName, DateTime.Now, droneSpeed, droneMaxCapacity, 0, true, droneMaxDistance);
                             Console.WriteLine("Drone added Successfully");
                             break;
@@ -189,6 +194,8 @@ namespace oopfinalproject
                             Console.WriteLine("license type of driver");
                             string driverLicenseType = Console.ReadLine();
 
+                            Entity checkDriver = new Driver(1, driverName, DateTime.Now, driverExperience, 0, true, driverLicenseType);
+                            checkDriver.Validate(driverName);
                             Driver driver = new Driver(1, driverName, DateTime.Now, driverExperience, 0, true, driverLicenseType);
                             Console.WriteLine("Driver added Successfully");
                             break;
@@ -202,6 +209,8 @@ namespace oopfinalproject
                             Console.WriteLine("max lift weight of loader");
                             double loaderMaxLiftWeight = double.Parse(Console.ReadLine());
 
+                            Entity checkLoader = new Loader(1, loaderName, DateTime.Now, loaderExperience, 0, true, loaderMaxLiftWeight);
+                            checkLoader.Validate(loaderName);
                             Loader loader = new Loader(1, loaderName, DateTime.Now, loaderExperience, 0, true, loaderMaxLiftWeight);
                             Console.WriteLine("Loader added Successfully");
                             break;
@@ -214,6 +223,8 @@ namespace oopfinalproject
                             int managerExperience = int.Parse(Console.ReadLine());
                             Console.WriteLine("number of workers under manager");
                             int teamSize = int.Parse(Console.ReadLine());
+                            Entity checkManager = new Manager(1, managerName, DateTime.Now, managerExperience, 0, true, teamSize);
+                            checkManager.Validate(managerName);
                             Manager manager = new Manager(1, managerName, DateTime.Now, managerExperience, 0, true, teamSize);
                             Console.WriteLine("Manager added Successfully");
                             break;
