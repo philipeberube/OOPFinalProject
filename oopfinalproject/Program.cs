@@ -126,8 +126,6 @@ namespace oopfinalproject
                         case 1:
                             Console.WriteLine("Add Van");
                             string vanName;
-                            Console.WriteLine("Add Id");
-                            int id = int.Parse(Console.ReadLine());
                             Console.WriteLine("Name of van");
                             vanName = Console.ReadLine();
                             Console.WriteLine("Speed of van maximum of 130");
@@ -143,14 +141,13 @@ namespace oopfinalproject
                                 vanElectric = true;
                             }
 
-                            Van van = new Van(id, vanName, DateTime.Now, vanSpeed, vanMaxCapacity, 0, true, vanElectric);
+                            Van van = new Van(1, vanName, DateTime.Now, vanSpeed, vanMaxCapacity, 0, true, vanElectric);
                             Console.WriteLine("Van added Successfully");
                             break;
                         case 2:
 
                             Console.WriteLine("Add Truck");
-                            Console.WriteLine("Add Id");
-                            int idTruck = int.Parse(Console.ReadLine());
+                            
                             string truckName;
                             Console.WriteLine("Name of truck");
                             truckName = Console.ReadLine();
@@ -162,14 +159,13 @@ namespace oopfinalproject
                             Console.WriteLine("Fuel consumption of truck");
                             double truckFuelConsumption = double.Parse(Console.ReadLine());
 
-                            Truck truck = new Truck(idTruck, truckName, DateTime.Now, truckSpeed, truckMaxCapacity, 0, true, truckFuelConsumption);
+                            Truck truck = new Truck(1, truckName, DateTime.Now, truckSpeed, truckMaxCapacity, 0, true, truckFuelConsumption);
                             Console.WriteLine("Truck added Successfully");
                             break;
                         case 3:
                             Console.WriteLine("Add Drone");
                             string droneName;
-                            Console.WriteLine("Add Id");
-                            int idDrone = int.Parse(Console.ReadLine());
+                            
                             Console.WriteLine("Name of drone");
                             droneName = Console.ReadLine();
                             Console.WriteLine("Speed of drone");
@@ -180,14 +176,12 @@ namespace oopfinalproject
                             Console.WriteLine("Max distance of drone");
                             double droneMaxDistance = double.Parse(Console.ReadLine());
 
-                            Drone drone = new Drone(idDrone, droneName, DateTime.Now, droneSpeed, droneMaxCapacity, 0, true, droneMaxDistance);
+                            Drone drone = new Drone(1, droneName, DateTime.Now, droneSpeed, droneMaxCapacity, 0, true, droneMaxDistance);
                             Console.WriteLine("Drone added Successfully");
                             break;
                         case 4:
                             Console.WriteLine("Add Driver");
                             string driverName;
-                            Console.WriteLine("Add Id");
-                            int idDriver = int.Parse(Console.ReadLine());
                             Console.WriteLine("Name of driver");
                             driverName = Console.ReadLine();
                             Console.WriteLine("years of experience of driver");
@@ -200,9 +194,7 @@ namespace oopfinalproject
                             break;
                         case 5:
                             Console.WriteLine("Add Loader");
-                            string loaderName;
-                            Console.WriteLine("Add Id");
-                            int idLoader = int.Parse(Console.ReadLine());
+                            string loaderName;                            
                             Console.WriteLine("Name of loader");
                             loaderName = Console.ReadLine();
                             Console.WriteLine("years of experience of loader");
@@ -210,21 +202,19 @@ namespace oopfinalproject
                             Console.WriteLine("max lift weight of loader");
                             double loaderMaxLiftWeight = double.Parse(Console.ReadLine());
 
-                            Loader loader = new Loader(idLoader, loaderName, DateTime.Now, loaderExperience, 0, true, loaderMaxLiftWeight);
+                            Loader loader = new Loader(1, loaderName, DateTime.Now, loaderExperience, 0, true, loaderMaxLiftWeight);
                             Console.WriteLine("Loader added Successfully");
                             break;
                         case 6:
                             Console.WriteLine("Add Manager");
-                            string managerName;
-                            Console.WriteLine("Add Id");
-                            int idManager = int.Parse(Console.ReadLine());
+                            string managerName;                            
                             Console.WriteLine("Name of manager");
                             managerName = Console.ReadLine();
                             Console.WriteLine("years of experience of manager");
                             int managerExperience = int.Parse(Console.ReadLine());
                             Console.WriteLine("number of workers under manager");
                             int teamSize = int.Parse(Console.ReadLine());
-                            Manager manager = new Manager(idManager, managerName, DateTime.Now, managerExperience, 0, true, teamSize);
+                            Manager manager = new Manager(1, managerName, DateTime.Now, managerExperience, 0, true, teamSize);
                             Console.WriteLine("Manager added Successfully");
                             break;
                         
