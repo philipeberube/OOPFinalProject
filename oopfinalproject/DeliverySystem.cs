@@ -70,6 +70,7 @@ namespace oopfinalproject
                         allPackages[i] = temp;
                     }
                 }
+                Console.WriteLine($"Package ID: {allPackages[i].GetPackageID()}, Priority Score: {allPackages[i].CalculatePriorityScore()}");
             }
         }
 
@@ -121,6 +122,16 @@ namespace oopfinalproject
                 }
             }
 
+        public void display()
+        {
+            Console.WriteLine("     ---- Display --- ");
+            foreach (Warehouse warehouse in warehouses)
+            {
+                Console.WriteLine($"Warehouse: {warehouse.GetName()}, Packages: {warehouse.GetPackages().Count}, Vehicles: {warehouse.GetVehicles().Count}, Workers: {warehouse.GetWorkers().Count}");
+            }
+            
+        }
+
         public void SimulateDay()
         {
             // Main simulation logic for a day
@@ -128,6 +139,7 @@ namespace oopfinalproject
             GetAllPackages();
             SortPackages();
             ProcessDeliveries();
+            display();
 
         }
     }
