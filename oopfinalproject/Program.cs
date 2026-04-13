@@ -318,6 +318,15 @@ namespace oopfinalproject
             }
             
         }
+        public static void CheckWarehouseExiting(Warehouse warehouse)
+        {
+            Warehouse exist = warehouse.GetVehicles()[0].GetID() != 0 ? warehouse : null;
+            if(exist == null)
+            {
+                Console.WriteLine("No warehouses please add");
+                return;
+            }
+        }
 
          public static void Sort(DeliverySystem deliverySystem) 
         { 
@@ -343,12 +352,14 @@ namespace oopfinalproject
 
         public static void RunSimulation(DeliverySystem deliverySystem)
         {
+            CheckVehicleExiting(deliverySystem);
             Console.WriteLine("Running daily simulation...");
             deliverySystem.SimulateDay();
         }
 
         public static void Undo(DeliverySystem deliverySystem)
         {
+            CheckVehicleExiting(deliverySystem);
             Console.WriteLine("Enter package ID to Undo delivery:");
             int packageId = int.Parse(Console.ReadLine());
             Console.WriteLine("Running Undo operation");
@@ -357,6 +368,9 @@ namespace oopfinalproject
 
         public static void Save(Warehouse warehouses, DeliverySystem deliverySystem)
         {
+            CheckVehicleExiting(deliverySystem);
+            CheckWarehouseExiting(warehouses);
+
             Console.WriteLine("Saving data...");
             foreach (Vehicle vehicle in warehouses.GetVehicles())
             {
