@@ -7,6 +7,7 @@ namespace oopfinalproject
     {
         public static void Main(string[] args)
         {
+            Warehouse warehouse = new Warehouse("Main Warehouse");
             DeliverySystem deliverySystem = new DeliverySystem();
             Vehicle[] vehicles = new Vehicle[10];
             int choice = 0;
@@ -50,7 +51,7 @@ namespace oopfinalproject
                                 Search(deliverySystem);
                                 break;
                             case 5:
-                                RunSimulation(deliverySystem);
+                                RunSimulation(deliverySystem, warehouse);
                                 break;
                             case 6:
 
@@ -340,11 +341,11 @@ namespace oopfinalproject
             }
         }
 
-        public static void RunSimulation(DeliverySystem deliverySystem)
+        public static void RunSimulation(DeliverySystem deliverySystem, Warehouse warehouse)
         {
             CheckVehicleExiting(deliverySystem);
             Console.WriteLine("Running daily simulation...");
-            deliverySystem.SimulateDay();
+            deliverySystem.SimulateDay(warehouse);
         }
 
         public static void Undo(DeliverySystem deliverySystem)
