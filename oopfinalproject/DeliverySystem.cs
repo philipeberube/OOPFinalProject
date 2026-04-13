@@ -70,6 +70,7 @@ namespace oopfinalproject
                         allPackages[i] = temp;
                     }
                 }
+                Console.WriteLine($"Package ID: {allPackages[i].GetPackageID()}, Priority Score: {allPackages[i].CalculatePriorityScore()}");
             }
         }
 
