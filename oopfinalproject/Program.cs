@@ -39,7 +39,7 @@ namespace oopfinalproject
                         switch (choice)
                         {
                             case 1:
-                                AddEntities();
+                                AddEntities(warehouse);
                                 break;
                             case 2:
                                 AssignDeliveries(deliverySystem);
@@ -86,7 +86,8 @@ namespace oopfinalproject
                     }
 
                 } while (choice != 8);
-            } catch (ValidationException ex)
+        }
+            catch (ValidationException ex)
             {
                 Console.WriteLine(ex.Message);
 
@@ -97,7 +98,7 @@ namespace oopfinalproject
 
         }
     
-        public static void AddEntities()
+        public static void AddEntities(Warehouse warehouse)
         {
             int choice = 0;
             try
@@ -143,6 +144,7 @@ namespace oopfinalproject
                             Entity check = new Van(1, vanName, DateTime.Now, vanSpeed, vanMaxCapacity, 0, true, vanElectric);
                             check.Validate(vanName);
                             Van van = new Van(1, vanName, DateTime.Now, vanSpeed, vanMaxCapacity, 0, true, vanElectric);
+                            warehouse.AddVehicle(van);
                             Console.WriteLine("Van added Successfully");
                             break;
                         case 2:
@@ -163,6 +165,7 @@ namespace oopfinalproject
                             Entity checkTruck = new Truck(1, truckName, DateTime.Now, truckSpeed, truckMaxCapacity, 0, true, truckFuelConsumption);
                             checkTruck.Validate(truckName);
                             Truck truck = new Truck(1, truckName, DateTime.Now, truckSpeed, truckMaxCapacity, 0, true, truckFuelConsumption);
+                            warehouse.AddVehicle(truck);
                             Console.WriteLine("Truck added Successfully");
                             break;
                         case 3:
@@ -182,6 +185,7 @@ namespace oopfinalproject
                             Entity checkDrone = new Drone(1, droneName, DateTime.Now, droneSpeed, droneMaxCapacity, 0, true, droneMaxDistance);
                             checkDrone.Validate(droneName);
                             Drone drone = new Drone(1, droneName, DateTime.Now, droneSpeed, droneMaxCapacity, 0, true, droneMaxDistance);
+                            warehouse.AddVehicle(drone);
                             Console.WriteLine("Drone added Successfully");
                             break;
                         case 4:
@@ -197,6 +201,7 @@ namespace oopfinalproject
                             Entity checkDriver = new Driver(1, driverName, DateTime.Now, driverExperience, 0, true, driverLicenseType);
                             checkDriver.Validate(driverName);
                             Driver driver = new Driver(1, driverName, DateTime.Now, driverExperience, 0, true, driverLicenseType);
+                            warehouse.AddWorker(driver);
                             Console.WriteLine("Driver added Successfully");
                             break;
                         case 5:
@@ -212,6 +217,7 @@ namespace oopfinalproject
                             Entity checkLoader = new Loader(1, loaderName, DateTime.Now, loaderExperience, 0, true, loaderMaxLiftWeight);
                             checkLoader.Validate(loaderName);
                             Loader loader = new Loader(1, loaderName, DateTime.Now, loaderExperience, 0, true, loaderMaxLiftWeight);
+                            warehouse.AddWorker(loader);
                             Console.WriteLine("Loader added Successfully");
                             break;
                         case 6:
@@ -226,6 +232,7 @@ namespace oopfinalproject
                             Entity checkManager = new Manager(1, managerName, DateTime.Now, managerExperience, 0, true, teamSize);
                             checkManager.Validate(managerName);
                             Manager manager = new Manager(1, managerName, DateTime.Now, managerExperience, 0, true, teamSize);
+                            warehouse.AddWorker(manager);
                             Console.WriteLine("Manager added Successfully");
                             break;
                         
@@ -251,7 +258,7 @@ namespace oopfinalproject
             
             try
             {
-                CheckVehicleExiting(deliverySystem);
+                
                 do {
                     Console.WriteLine("Deliveries Main Menu");
                     Console.WriteLine("1: Add Warehouse");
@@ -318,17 +325,7 @@ namespace oopfinalproject
             }
 
         }
-        public static void CheckVehicleExiting(DeliverySystem deliverySystem)
-        {
-            Vehicle vehicle = deliverySystem.GetWarehouses()[0].GetVehicles()[0];
-
-            if(vehicle == null)
-            {
-                Console.WriteLine("no vehicles please add");
-                return;
-            }
-            
-        }
+        
 
          public static void Sort(DeliverySystem deliverySystem) 
         { 
@@ -338,7 +335,7 @@ namespace oopfinalproject
 
         public static void Search(DeliverySystem deliverySystem) 
         {
-            CheckVehicleExiting(deliverySystem);
+            
             Console.WriteLine("Enter package ID to search:");
             int packageId = int.Parse(Console.ReadLine());
             Package package = deliverySystem.SearchPackageById(packageId);
@@ -354,14 +351,14 @@ namespace oopfinalproject
 
         public static void RunSimulation(DeliverySystem deliverySystem, Warehouse warehouse)
         {
-            CheckVehicleExiting(deliverySystem);
+            
             Console.WriteLine("Running daily simulation...");
             deliverySystem.SimulateDay(warehouse);
         }
 
         public static void Undo(DeliverySystem deliverySystem)
         {
-            CheckVehicleExiting(deliverySystem);
+            
             Console.WriteLine("Enter package ID to Undo delivery:");
             int packageId = int.Parse(Console.ReadLine());
             Console.WriteLine("Running Undo operation");
@@ -370,30 +367,38 @@ namespace oopfinalproject
 
         public static void Save(Warehouse warehouses, DeliverySystem deliverySystem)
         {
-            CheckVehicleExiting(deliverySystem);
+            
 
             Console.WriteLine("Saving data...");
-            foreach (Vehicle vehicle in warehouses.GetVehicles())
-            {
-                string data = $"Vehicle ID: {vehicle.GetID()}, Name: {vehicle.GetName()}, Speed: {vehicle.GetSpeed()}, Max Capacity: {vehicle.GetMaxCapacity()}, Current Load: {vehicle.GetCurrentLoad()}, Available: {vehicle.GetIsAvailable()}";
-                File.AppendAllText("data.txt", data);
-            }
-            foreach (Package package in warehouses.GetPackages())
-            {
-                string data1 = $"Package ID: {package.GetPackageID()}, Weight: {package.GetWeight()}, Priority Level: {package.GetPriorityLevel()}, Destination: {package.GetDestination()}, Status: {package.GetStatus()}";
-                File.AppendAllText("data.txt", data1);
-            }
-            foreach (Worker worker in warehouses.GetWorkers())
-            {
-                string data2 = $"Worker ID: {worker.GetID()}, Name: {worker.GetName()}, Experience: {worker.GetExperienceYears()}, Available: {worker.GetIsAvailable()}";
-                File.AppendAllText("data.txt", data2);
-            }
+            
             foreach (Warehouse warehouse in deliverySystem.GetWarehouses())
             {
-                string data3 = $"Warehouse Name: {warehouse.GetName()}";
+                string data3 = $"Warehouse Name: {warehouse.GetName()}\n";
+                Console.WriteLine();
                 File.AppendAllText("data.txt", data3);
             }
 
+            foreach (Vehicle vehicle in warehouses.GetVehicles())
+            {
+                string data = $"Vehicle ID: {vehicle.GetID()}, Name: {vehicle.GetName()}, Speed: {vehicle.GetSpeed()}, Max Capacity: {vehicle.GetMaxCapacity()}, Current Load: {vehicle.GetCurrentLoad()}, Available: {vehicle.GetIsAvailable()}\n";
+                Console.WriteLine();
+                File.AppendAllText("data.txt", data);
+            }
+            
+            foreach (Worker worker in warehouses.GetWorkers())
+            {
+                string data2 = $"Worker ID: {worker.GetID()}, Name: {worker.GetName()}, Experience: {worker.GetExperienceYears()}, Available: {worker.GetIsAvailable()}\n";
+                Console.WriteLine();
+                File.AppendAllText("data.txt", data2);
+            }
+            
+            foreach (Package package in warehouses.GetPackages())
+            {
+                string data1 = $"Package ID: {package.GetPackageID()}, Weight: {package.GetWeight()}, Priority Level: {package.GetPriorityLevel()}, Destination: {package.GetDestination()}, Status: {package.GetStatus()}\n";
+                Console.WriteLine();
+                File.AppendAllText("data.txt", data1);
+            }
+            
             Console.WriteLine("Data saved successfully.");
         }
 
